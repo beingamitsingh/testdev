@@ -1,290 +1,283 @@
 
+
 <!DOCTYPE html>
 <html>
-
-
 <head>
-	<meta charset='UTF-8' /> 
+	<meta charset='utf-8' /> 
 	<meta name='description' content='' />
 	<meta name='robots' content='noodp, noydir' />
 	<meta name='viewport' content='width=device-width, initial-scale=1' />
 	<meta id="timeStampFormat" name="timeStampFormat" content='MMM d, yyyy hh:mm:ss a'/>
 	
-	<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600' rel='stylesheet' type='text/css'>
-	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
-		<link href='https://cdn.rawgit.com/anshooarora/extentreports-java/bee7a4abdc590e21eec8618a90c81ff4d16e500a/dist/css/extent.css' type='text/css' rel='stylesheet' />
+	<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600' rel='stylesheet' type='text/css' />
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+	<link href='https://cdn.rawgit.com/extent-framework/extent-github-cdn/b65cd69/v3html/css/extent.css' type='text/css' rel='stylesheet' />
 	
-	<title>Extent</title>
+	<title>ExtentReports</title>
 
 	<style type='text/css'>
-			
-            
-
-            
-        
+		/* json-tree */
+		.jstBracket,.jstComma,.jstValue{white-space:pre-wrap}.jstValue{font-size:10px;font-weight:400;font-family:"Lucida Console",Monaco,monospace}.jstProperty{color:#666;word-wrap:break-word}.jstBool{color:#2525CC}.jstNum{color:#D036D0}.jstNull{color:gray}.jstStr{color:#2DB669}.jstFold:after{content:' -';cursor:pointer}.jstExpand{white-space:normal}.jstExpand:after{content:' +';cursor:pointer}.jstFolded{white-space:normal!important}.jstHiddenBlock{display:none}
 	</style>
+	
+	<script type="text/javascript">
+		/*! json-tree - v0.2.2 - 2017-09-25, MIT LICENSE */
+		var JSONTree=function(){var n={"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#x27;","/":"&#x2F;"},t=0,r=0;this.create=function(n,t){return r+=1,N(u(n,0,!1),{class:"jstValue"})};var e=function(t){return t.replace(/[&<>'"]/g,function(t){return n[t]})},s=function(){return r+"_"+t++},u=function(n,t,r){if(null===n)return f(r?t:0);switch(typeof n){case"boolean":return l(n,r?t:0);case"number":return i(n,r?t:0);case"string":return o(n,r?t:0);default:return n instanceof Array?a(n,t,r):c(n,t,r)}},c=function(n,t,r){var e=s(),u=Object.keys(n).map(function(r){return j(r,n[r],t+1,!0)}).join(m()),c=[g("{",r?t:0,e),N(u,{id:e}),p("}",t)].join("\n");return N(c,{})},a=function(n,t,r){var e=s(),c=n.map(function(n){return u(n,t+1,!0)}).join(m());return[g("[",r?t:0,e),N(c,{id:e}),p("]",t)].join("\n")},o=function(n,t){var r=e(JSON.stringify(n));return N(v(r,t),{class:"jstStr"})},i=function(n,t){return N(v(n,t),{class:"jstNum"})},l=function(n,t){return N(v(n,t),{class:"jstBool"})},f=function(n){return N(v("null",n),{class:"jstNull"})},j=function(n,t,r){var s=v(e(JSON.stringify(n))+": ",r),c=N(u(t,r,!1),{});return N(s+c,{class:"jstProperty"})},m=function(){return N(",\n",{class:"jstComma"})},N=function(n,t){return d("span",t,n)},d=function(n,t,r){return"<"+n+Object.keys(t).map(function(n){return" "+n+'="'+t[n]+'"'}).join("")+">"+r+"</"+n+">"},g=function(n,t,r){return N(v(n,t),{class:"jstBracket"})+N("",{class:"jstFold",onclick:"JSONTree.toggle('"+r+"')"})};this.toggle=function(n){var t=document.getElementById(n),r=t.parentNode,e=t.previousElementSibling;""===t.className?(t.className="jstHiddenBlock",r.className="jstFolded",e.className="jstExpand"):(t.className="",r.className="",e.className="jstFold")};var p=function(n,t){return N(v(n,t),{})},v=function(n,t){return Array(2*t+1).join(" ")+n};return this}();
+	</script>
 </head>
-
 	<body class='extent standard default hide-overflow bdd-report'>
 		<div id='theme-selector' alt='Click to toggle theme. To enable by default, use theme configuration.' title='Click to toggle theme. To enable by default, use theme configuration.'>
 			<span><i class='material-icons'>desktop_windows</i></span>
 		</div>
-
 <nav>
 	<div class="nav-wrapper">
-		<a href="#!" class="brand-logo blue darken-3">Extent</a>
-
+		<a href="#!" class="brand-logo black"><img src="https://cdn.rawgit.com/extent-framework/extent-github-cdn/d74480e/commons/img/logo.png"></a>
 		<!-- slideout menu -->
 		<ul id='slide-out' class='side-nav fixed hide-on-med-and-down'>
 			<li class='waves-effect active'><a href='#!' view='test-view' onclick="configureView(0);chartsView('test');"><i class='material-icons'>dashboard</i></a></li>
 						<li class='waves-effect'><a href='#!' view='category-view' onclick="configureView(1)"><i class='material-icons'>label_outline</i></a></li>
-				<li class='waves-effect'><a href='#!' view='author-view' onclick="configureView(3)"><i class='material-icons'>person</i></a></li>
-			<li class='waves-effect'><a href='#!' onclick="configureView(-1);chartsView('dashboard');" view='dashboard-view'><i class='material-icons'>track_changes</i></i></a></li>
+			<li class='waves-effect'><a href='#!' onclick="configureView(-1);chartsView('dashboard');" view='dashboard-view'><i class='material-icons'>track_changes</i></a></li>
 		</ul>
-
 		<!-- report name -->
-		<span class='report-name'>Automation Report</span>
-		
+		<span class='report-name'>ExtentReports</span>
 		<!-- report headline -->
 		<span class='report-headline'></span>
-
 		<!-- nav-right -->
 		<ul id='nav-mobile' class='right hide-on-med-and-down nav-right'>
-			<li>
-                <a href='#!'>
-                    <span class='label suite-start-time blue darken-3'>Feb 27, 2020 06:04:42 AM</span>
-				</a>
-			</li>
-			<li>
-                <a href='#!'>
-                    <span class='label blue darken-3'>v3.1.1</span>
-				</a>
-			</li>
+			<a href='#!'>
+			<span class='label blue darken-3 suite-start-time'>Feb 28, 2020 07:58:03 AM</span>
+			</a>
 		</ul>
 	</div>
-</nav>
-
-		<!-- container -->
+</nav>		<!-- container -->
 		<div class='container'>
-
 <div id='test-view' class='view'>
-				
 	<section id='controls'>
 		<div class='controls grey lighten-4'>
 			<!-- test toggle -->
 			<div class='chip transparent'>
 				<a class='dropdown-button tests-toggle' data-activates='tests-toggle' data-constrainwidth='true' data-beloworigin='true' data-hover='true' href='#'>
-					<i class='material-icons'>warning</i> Status
+				<i class='material-icons'>warning</i> Status
 				</a>
 				<ul id='tests-toggle' class='dropdown-content'>
-											<li status='pass'><a href='#!'>Pass <i class='material-icons green-text'>check_circle</i></a></li>
+										<li status='pass'><a href='#!'>Pass <i class='material-icons green-text'>check_circle</i></a></li>
 					<li class='divider'></li>
 					<li status='clear' clear='true'><a href='#!'>Clear Filters <i class='material-icons'>clear</i></a></li>
 				</ul>
 			</div>
 			<!-- test toggle -->
-
 			<!-- category toggle -->
 			<div class='chip transparent'>
 				<a class='dropdown-button category-toggle' data-activates='category-toggle' data-constrainwidth='false' data-beloworigin='true' data-hover='true' href='#'>
-					<i class='material-icons'>local_offer</i> Category
+				<i class='material-icons'>local_offer</i> Category
 				</a>
 				<ul id='category-toggle' class='dropdown-content'>
-					<li><a href='#'>@userAccountCreation</a></li>
+					<li><a href='#'>@AddItemsToCart</a></li>
 					<li class='divider'></li>
 					<li class='clear'><a href='#!' clear='true'>Clear Filters</a></li>
 				</ul>
 			</div>
 			<!-- category toggle -->
-
 			<!-- clear filters -->
 			<div class='chip transparent hide'>
 				<a class='' id='clear-filters' alt='Clear Filters' title='Clear Filters'>
-					<i class='material-icons'>close</i> Clear
+				<i class='material-icons'>close</i> Clear
 				</a>
 			</div>
 			<!-- clear filters -->
-
 			<!-- enable dashboard -->
 			<div id='toggle-test-view-charts' class='chip transparent'>
 				<a class='pink-text' id='enable-dashboard' alt='Enable Dashboard' title='Enable Dashboard'>
-					<i class='material-icons'>track_changes</i> Dashboard
+				<i class='material-icons'>track_changes</i> Dashboard
 				</a>
 			</div>
 			<!-- enable dashboard -->
-
 			<!-- search -->
 			<div class='chip transparent' alt='Search Tests' title='Search Tests'>
 				<a href="#" class='search-div'>
-					<i class='material-icons'>search</i> Search
+				<i class='material-icons'>search</i> Search
 				</a>
-
 				<div class='input-field left hide'>
 					<input id='search-tests' type='text' class='validate browser-default' placeholder='Search Tests...'>
 				</div>
-				
 			</div>
 			<!-- search -->
 		</div>
 	</section>
-
-
 <div id='test-view-charts' class='subview-full'>
-	<div id='charts-row' class='row nm-v nm-h'>
-		<div class='col s12 m4 l4 np-h'>
-			<div class='card-panel nm-v'>
-				<div class='left panel-name'>Features</div>
-				<div class='chart-box'>
-					<canvas id='parent-analysis' width='100' height='80'></canvas>
-				</div>
-				<div class='block text-small'>
-					<span class='tooltipped' data-position='top' data-tooltip='100%'><span class='strong'>1</span> feature(s) passed</span>
-				</div>
-				<div class='block text-small'>
-					<span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> feature(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
-				</div>
-			</div>
-		</div>
-		
-		<div class='col s12 m4 l4 np-h'>
-			<div class='card-panel nm-v'>
-				<div class='left panel-name'>Scenarios</div>
-				<div class='chart-box'>
-					<canvas id='child-analysis' width='100' height='80'></canvas>
-				</div>
-				<div class='block text-small'>
-					<span class='tooltipped' data-position='top' data-tooltip='100%'><span class='strong'>1</span> scenario(s) passed</span>
-				</div>
-				<div class='block text-small'>
-					<span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> scenario(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
-				</div>
-			</div>
-		</div>
-		
-		<div class='col s12 m4 l4 np-h'>
-			<div class='card-panel nm-v'>
-				<div class='left panel-name'>Steps</div>
-				<div class='chart-box'>
-					<canvas id='grandchild-analysis' width='100' height='80'></canvas>
-				</div>
-				<div class='block text-small'>
-					<span class='tooltipped' data-position='top' data-tooltip='100%'><span class='strong'>9</span> step(s) passed</span>
-				</div>
-				<div class='block text-small'>
-					<span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> step(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-
-	<div class='subview-left left'>
-		
+    <div id='charts-row' class='row nm-v nm-h'>
+        <div class='col s12 m4 l4 np-h'>
+            <div class='card-panel nm-v'>
+                <div class='left panel-name'>Features</div>
+                <div class='chart-box' style="max-height:94px;">
+                    <canvas id='parent-analysis' width='90' height='70'></canvas>
+                </div>
+                <div class='block text-small'>
+                    <span class='tooltipped' data-position='top' data-tooltip='100%'><span class='strong'>1</span> feature(s) passed</span>
+                </div>
+                <div class='block text-small'>
+                    <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> feature(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
+                </div>
+            </div>
+        </div>
+        <div class='col s12 m4 l4 np-h'>
+            <div class='card-panel nm-v'>
+                <div class='left panel-name'>Scenarios</div>
+                <div class='chart-box' style="max-height:94px;">
+                    <canvas id='child-analysis' width='90' height='70'></canvas>
+                </div>
+                <div class='block text-small'>
+                    <span class='tooltipped' data-position='top' data-tooltip='100%'><span class='strong'>1</span> scenario(s) passed</span>
+                </div>
+                <div class='block text-small'>
+                    <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> scenario(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
+                </div>
+            </div>
+        </div>
+        <div class='col s12 m4 l4 np-h'>
+            <div class='card-panel nm-v'>
+                <div class='left panel-name'>Steps</div>
+                <div class='chart-box' style="max-height:94px;">
+                    <canvas id='grandchild-analysis' width='90' height='70'></canvas>
+                </div>
+                <div class='block text-small'>
+                    <span class='tooltipped' data-position='top' data-tooltip='100%'><span class='strong'>19</span> step(s) passed</span>
+                </div>
+                <div class='block text-small'>
+                    <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> step(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="timeline-chart" class="row nm-v nm-h">
+        <div class="col s12 m12 l12 np-h">
+            <div class="card-panel">
+                <div class='left panel-name'>Timeline (seconds)</div>
+                <div class="chart-box" style="width:98%;max-height:145px;">
+                    <canvas id="timeline" height="120"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>	<div class='subview-left left'>
 		<div class='view-summary'>
-			<h5>Features</h5>
 			<ul id='test-collection' class='test-collection'>
-				
-				
 				<li class='test displayed active has-leaf pass' status='pass' bdd='true' test-id='1'>
 					<div class='test-heading'>
-						<span class='test-name'>User Management Section</span>
-						<span class='test-time'>Feb 27, 2020 06:04:42 AM</span>
+						<span class='test-name'>Add shopping items to cart for purchase</span>
+						<span class='test-time'>Feb 28, 2020 07:58:04 AM</span>
 						<span class='test-status right pass'>pass</span>
 					</div>
 					<div class='test-content hide'>
+<div class="sr-filters bdd-filters">
+    <a class="btn-floating waves-effect waves-light pass green" title="pass"><i class='material-icons'>check_circle</i></a>
+    <a class="btn-floating waves-effect waves-light fail red" title="fail"><i class='material-icons'>cancel</i></a>
+    <a class="btn-floating waves-effect waves-light skip blue" title="skip"><i class='material-icons'>redo</i></a>
+    <a class="btn-floating waves-effect waves-light clear grey" title="clear"><i class='material-icons'>clear</i></a>
+</div>
 <div class='scenario node' test-id='2' status='pass'>
-	<div class='category-list'>
-		<span class='category label white-text'>@userAccountCreation</span>
-	</div>
-	<span class='duration right label'>0h 0m 45s+405ms</span>
-	<div class='desc'>
-		<b>Scenario</b>
-		<span class="desc-text">Account creation</span>
-	</div>
-	<ul class='steps'>
-		<li test-id='3' class='node given pass' status='pass'>
-			
-			<b>Given</b>
-			
-			<span class="bdd-step-name">Given application is launched</span>
-				<div class='pre'>Application successfully launched.</div>
-				<div class='pre'>passed</div>
-			
-		</li>
-		<li test-id='4' class='node and pass' status='pass'>
-			
-			<b>And</b>
-			
-			<span class="bdd-step-name">And I am in Sign In page</span>
-				<div class='pre'>User is on Sign in page</div>
-				<div class='pre'>passed</div>
-			
-		</li>
-		<li test-id='5' class='node when pass' status='pass'>
-			
-			<b>When</b>
-			
-			<span class="bdd-step-name">When I enter email "amit9@automation.com" in Create New Account section</span>
-				<div class='pre'>Email ID entered: amit9@automation.com</div>
-				<div class='pre'>passed</div>
-			
-		</li>
-		<li test-id='6' class='node and pass' status='pass'>
-			
-			<b>And</b>
-			
-			<span class="bdd-step-name">And I enter valid account details</span>
-				<div class='pre'><table><tr><td>Salutation</td><td>Mr.</td></tr><tr><td>FirstName</td><td>Amit</td></tr><tr><td>LastName</td><td>Singh</td></tr><tr><td>Password</td><td>password</td></tr><tr><td>DOB</td><td>12-December-1965</td></tr><tr><td>SignUp_NewsLetter</td><td>N</td></tr><tr><td>SpecialOffers</td><td>Y</td></tr><tr><td>Company</td><td>testdevlabs</td></tr><tr><td>Address_1</td><td>432</td></tr><tr><td>Address_2</td><td>Annelinn</td></tr><tr><td>City</td><td>Phoenix</td></tr><tr><td>State</td><td>Arizona</td></tr><tr><td>ZipCode</td><td>85014</td></tr><tr><td>Country</td><td>United States of America</td></tr><tr><td>AdditionalInfo</td><td>N/A</td></tr><tr><td>HomePhone</td><td></td></tr><tr><td>MobileNumber</td><td>+17865509876</td></tr><tr><td>Alias</td><td>My address</td></tr></table></div>
-				<div class='pre'>Special Offer check box selected</div>
-				<div class='pre'>passed</div>
-			
-		</li>
-		<li test-id='7' class='node and pass' status='pass'>
-			
-			<b>And</b>
-			
-			<span class="bdd-step-name">And click on Register button</span>
-				<div class='pre'>Clicked on registration button.</div>
-				<div class='pre'>passed</div>
-			
-		</li>
-		<li test-id='8' class='node and pass' status='pass'>
-			
-			<b>And</b>
-			
-			<span class="bdd-step-name">And My Account page is opened</span>
-				<div class='pre'>My account page is opened.</div>
-				<div class='pre'>passed</div>
-			
-		</li>
-		<li test-id='9' class='node and pass' status='pass'>
-			
-			<b>And</b>
-			
-			<span class="bdd-step-name">And I click on My Personal Information button</span>
-				<div class='pre'>MY PERSONAL INFORMATION is clicked</div>
-				<div class='pre'>passed</div>
-			
-		</li>
-		<li test-id='10' class='node then pass' status='pass'>
-			
-			<b>Then</b>
-			
-			<span class="bdd-step-name">Then Your Personal Information page is opened</span>
-				<div class='pre'>PERSONAL INFORMATION page is opened</div>
-				<div class='pre'>passed</div>
-			
-		</li>
-		<li test-id='11' class='node and pass' status='pass'>
-			
-			<b>And</b>
-			
-			<span class="bdd-step-name">And correct personal information is displayed</span>
-				<div class='pre'>passed</div>
-			
-		</li>
-	</ul>
+    <div class='category-list'>
+        <span class='category label'>@AddItemsToCart</span>
+    </div>
+    <span class='duration right label'>0h 1m 17s+229ms</span>
+    <div class="bdd-test">
+        <div class="scenario-name"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span> Scenario: Adding item to the cart</div>
+    </div>
+    <ul class='steps'>
+        <li test-id='3' class='node given pass' status='pass'>
+            <div class="step-name" title=""><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>Given application is launched</div>
+                <div class="node-step">Application successfully launched.</div>
+                <div class="node-step">passed</div>
+        </li>
+        <li test-id='4' class='node and pass' status='pass'>
+            <div class="step-name" title=""><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>And I am logged in</div>
+                <div class="node-step">User is on Sign in page</div>
+                <div class="node-step">LogIn button located.</div>
+                <div class="node-step">passed</div>
+        </li>
+        <li test-id='5' class='node given pass' status='pass'>
+            <div class="step-name" title=""><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>Given I am in Landing page</div>
+                <div class="node-step">User is on landing page</div>
+                <div class="node-step">passed</div>
+        </li>
+        <li test-id='6' class='node when pass' status='pass'>
+            <div class="step-name" title=""><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>When I select Search menu</div>
+                <div class="node-step">Search box selected</div>
+                <div class="node-step">passed</div>
+        </li>
+        <li test-id='7' class='node and pass' status='pass'>
+            <div class="step-name" title=""><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>And I enter "Blouse"</div>
+                <div class="node-step">Search box is enabled</div>
+                <div class="node-step">passed</div>
+        </li>
+        <li test-id='8' class='node and pass' status='pass'>
+            <div class="step-name" title=""><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>And I click on Search button</div>
+                <div class="node-step">passed</div>
+        </li>
+        <li test-id='9' class='node and pass' status='pass'>
+            <div class="step-name" title=""><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>And only 1 result is found</div>
+                <div class="node-step">1 product found.</div>
+                <div class="node-step">passed</div>
+        </li>
+        <li test-id='10' class='node and pass' status='pass'>
+            <div class="step-name" title=""><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>And I select the item</div>
+                <div class="node-step">First item selected.</div>
+                <div class="node-step">passed</div>
+        </li>
+        <li test-id='11' class='node and pass' status='pass'>
+            <div class="step-name" title=""><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>And item description and condition is displayed</div>
+                <div class="node-step">Product description is displayed.</div>
+                <div class="node-step">Product condition is displayed.</div>
+                <div class="node-step">passed</div>
+        </li>
+        <li test-id='12' class='node and pass' status='pass'>
+            <div class="step-name" title=""><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>And I change quantity to 2</div>
+                <div class="node-step">passed</div>
+        </li>
+        <li test-id='13' class='node and pass' status='pass'>
+            <div class="step-name" title=""><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>And I set size to S</div>
+                <div class="node-step">Size field found.</div>
+                <div class="node-step">passed</div>
+        </li>
+        <li test-id='14' class='node and pass' status='pass'>
+            <div class="step-name" title=""><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>And I set color to White</div>
+                <div class="node-step">passed</div>
+        </li>
+        <li test-id='15' class='node and pass' status='pass'>
+            <div class="step-name" title=""><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>And I select Add to cart button</div>
+                <div class="node-step">Add to cart button enabled.</div>
+                <div class="node-step">Add to cart button is clicked.</div>
+                <div class="node-step">passed</div>
+        </li>
+        <li test-id='16' class='node and pass' status='pass'>
+            <div class="step-name" title=""><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>And item is successfully added to cart</div>
+                <div class="node-step">Item successfully added to cart.</div>
+                <div class="node-step">passed</div>
+        </li>
+        <li test-id='17' class='node and pass' status='pass'>
+            <div class="step-name" title=""><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>And I click on Proceed to checkout button</div>
+                <div class="node-step">Proceed to checkout button is enabled.</div>
+                <div class="node-step">passed</div>
+        </li>
+        <li test-id='18' class='node then pass' status='pass'>
+            <div class="step-name" title=""><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>Then Shopping cart summary page is opened</div>
+                <div class="node-step">Shopping Cart Summary is opened</div>
+                <div class="node-step">passed</div>
+        </li>
+        <li test-id='19' class='node and pass' status='pass'>
+            <div class="step-name" title=""><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>And correct description is specified</div>
+                <div class="node-step">passed</div>
+        </li>
+        <li test-id='20' class='node and pass' status='pass'>
+            <div class="step-name" title=""><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>And amount is correctly calculated</div>
+                <div class="node-step">passed</div>
+        </li>
+        <li test-id='21' class='node and pass' status='pass'>
+            <div class="step-name" title=""><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>And Proceed to checkout button is visible</div>
+                <div class="node-step">Proceed to checkout button present on product summary page.</div>
+                <div class="node-step">passed</div>
+        </li>
+    </ul>
 </div>
 					</div>
 				</li>
@@ -292,66 +285,53 @@
 		</div>
 	</div>
 	<!-- subview left -->
-
 	<div class='subview-right left'>
 		<div class='view-summary'>
-			<h5 class='test-name'></h5>
-
-			<div id='step-filters' class="right">
-				<span class="blue-text" status="info" alt="info" title="info"><i class="material-icons">info_outline</i></span>
-				<span class="green-text" status="pass" alt="pass" title="pass"><i class="material-icons">check_circle</i></span>
-				<span class="red-text" status="fail" alt="fail" title="fail"><i class="material-icons">cancel</i></span>
-				<span class="red-text text-darken-4" status="fatal" alt="fatal" title="fatal"><i class="material-icons">cancel</i></span>
-				<span class="pink-text text-lighten-1" status="error" alt="error" title="error"><i class="material-icons">error</i></span>
-				<span class="orange-text" alt="warning" status="warning" title="warning"><i class="material-icons">warning</i></span>
-				<span class="teal-text" status="skip" alt="skip" title="skip"><i class="material-icons">redo</i></span>
-				<span status="clear" alt="Clear filters" title="Clear filters"><i class="material-icons">clear</i></span>
+			<div id='step-filters' class="right sr-filters">
+				<a class="btn-floating waves-effect waves-light green" status="pass" alt="pass" title="pass"><i class="material-icons">check_circle</i></a>
+				<a class="btn-floating waves-effect waves-light red" status="fail" alt="fail" title="fail"><i class="material-icons">cancel</i></a>
+				<a class="btn-floating waves-effect waves-light red darken-4" status="fatal" alt="fatal" title="fatal"><i class="material-icons">cancel</i></a>
+				<a class="btn-floating waves-effect waves-light pink text-lighten-1" status="error" alt="error" title="error"><i class="material-icons">error</i></a>
+				<a class="btn-floating waves-effect waves-light orange" alt="warning" status="warning" title="warning"><i class="material-icons">warning</i></a>
+				<a class="btn-floating waves-effect waves-light teal" status="skip" alt="skip" title="skip"><i class="material-icons">redo</i></a>
+				<a class="btn-floating waves-effect waves-light grey" status="clear" alt="Clear filters" title="Clear filters"><i class="material-icons">clear</i></a>
 			</div>
+			<h5 class='test-name'></h5>
 		</div>
 	</div>
 	<!-- subview right -->
-
 </div>
-<!-- test view -->
-<div id='category-view' class='view hide'>
-
+<!-- test view --><div id='category-view' class='view hide'>
 	<section id='controls'>
 		<div class='controls grey lighten-4'>
 			<!-- search -->
 			<div class='chip transparent' alt='Search Tests' title='Search Tests'>
 				<a href="#" class='search-div'>
-					<i class='material-icons'>search</i> Search
+				<i class='material-icons'>search</i> Search
 				</a>
-				
 				<div class='input-field left hide'>
 					<input id='search-tests' type='text' class='validate browser-default' placeholder='Search Tests...'>
 				</div>
-				
 			</div>
 			<!-- search -->
 		</div>
 	</section>
-
 	<div class='subview-left left'>
-		
 		<div class='view-summary'>
-			<h5>Categories</h3>
 			<ul id='category-collection' class='category-collection'>
-				
 				<li class='category displayed active'>
 					<div class='category-heading'>
-						<span class='category-name'>@userAccountCreation</span>
+						<span class='category-name'>@AddItemsToCart</span>
 						<span class='category-status right'>
-							<span class='label pass'>1</span>
+						<span class='label pass'>1</span>
 						</span>
 					</div>
 					<div class='category-content hide'>
 						<div class='category-status-counts'>
-							<span class='label green accent-4 white-text'>Passed: 1</span>
+							<span status="pass" class='label green accent-4 white-text'>Passed: 1</span>
 							
 							
 						</div>
-					
 						<div class='category-tests'>
 							<table class='bordered table-results'>
 								<thead>
@@ -363,8 +343,8 @@
 								</thead>
 								<tbody>
 									<tr>
-										<td>Feb 27, 2020 06:04:42 AM</td>
-										<td class='linked' test-id='2'>User Management Section.Account creation</td>
+										<td>Feb 28, 2020 07:58:04 AM</td>
+										<td class='linked' test-id='2'>Add shopping items to cart for purchase.Adding item to the cart</td>
 										<td><span class='test-status pass'>pass</span></td>
 									</tr>
 								</tbody>
@@ -372,89 +352,16 @@
 						</div>
 					</div>
 				</li>
-
 			</ul>
 		</div>
 	</div>
-
 	<div class='subview-right left'>
 		<div class='view-summary'>
 			<h5 class='category-name'></h5>
 		</div>
 	</div>
 </div>
-<!-- category view -->
-<div id='author-view' class='view hide'>
-    <section id='controls'>
-        <div class='controls grey lighten-4'>
-            <!-- search -->
-            <div class='chip transparent' alt='Search Authors' title='Search Authors'>
-                <a href="#" class='search-div'>
-                    <i class='material-icons'>search</i> Search
-                </a>
-
-                <div class='input-field left hide'>
-                    <input id='search-tests' type='text' class='validate browser-default' placeholder='Search Authors...'>
-                </div>
-
-            </div>
-            <!-- search -->
-        </div>
-    </section>
-
-    <div class='subview-left left'>
-
-        <div class='view-summary'>
-            <h5>Authors</h5>
-                <ul id='author-collection' class='author-collection'>
-
-                        <li class='author displayed active'>
-                            <div class='author-heading'>
-                                <span class='author-name'>amit91</span>
-                                <span class='author-status right'>
-                                        <span class='label pass'>1</span>
-						        </span>
-                            </div>
-                            <div class='author-content hide'>
-                                <div class='author-status-counts'>
-                                    <span class='label green accent-4 white-text'>Passed: 1</span>
-                                    
-                                    
-                                </div>
-
-                                <div class='author-tests'>
-                                    <table class='bordered table-results'>
-                                        <thead>
-                                        <tr>
-                                            <th>Timestamp</th>
-                                            <th>TestName</th>
-                                            <th>Status</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>Feb 27, 2020 06:04:42 AM</td>
-                                                <td class='linked' test-id='2'>User Management Section.Account creation</td>
-                                                <td><span class='test-status pass'>pass</span></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </li>
-
-                </ul>
-        </div>
-    </div>
-
-    <div class='subview-right left'>
-        <div class='view-summary'>
-            <h5 class='author-name'></h5>
-        </div>
-    </div>
-</div>
-<!-- exception view -->
-<div id='dashboard-view' class='view hide'>
+<!-- category view --><!-- exception view --><div id='dashboard-view' class='view hide'>
 	<div class='card-panel transparent np-v'>
 		<h5>Dashboard</h5>
 
@@ -474,48 +381,28 @@
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Steps
-					<div class='panel-lead'>9</div>
+					<div class='panel-lead'>19</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Start
-					<div class='panel-lead'>Feb 27, 2020 06:04:42 AM</div>
+					<div class='panel-lead'>Feb 28, 2020 07:58:03 AM</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 			 		End
-			 		<div class='panel-lead'>Feb 27, 2020 06:05:28 AM</div>
+			 		<div class='panel-lead'>Feb 28, 2020 07:59:21 AM</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Time Taken
-					<div class='panel-lead'>45,475ms</div>
+					<div class='panel-lead'>0h 1m 17s+558ms</div>
 				</div>
 			</div>
-			<div class='col s4'>
-				<div class='card-panel dashboard-environment'>
-					<span class='right label cyan white-text'>Environment</span><p>&nbsp;</p>
-					
-					<table>
-						<tr>
-							<th>Name</th>
-							<th>Value</th>
-						</tr>
-							<tr>
-								<td>Tester Name</td>
-								<td>amit91</td>
-							</tr>
-							<tr>
-								<td>OS</td>
-								<td>Windows 10, 64-bit</td>
-							</tr>
-					</table>
-				</div>
-			</div>
-			<div class='col s4'>
+			<div class='col s6'>
 				<div class='card-panel dashboard-categories'>
 					<span class='right label cyan white-text'>Categories</span><p>&nbsp;</p>
 					
@@ -525,12 +412,16 @@
 							<th>Passed</th>
 							<th>Failed</th>
 							<th>Others</th>
+							<th>Passed %</th>
 						</tr>
 						<tr>
-							<td>@userAccountCreation</td>
+							<td>@AddItemsToCart</td>
 							<td>1</td>
 							<td>0</td>
 							<td>0</td>
+							<td>
+									100%
+							</td>
 						</tr>
 					</table>
 				</div>
@@ -539,12 +430,11 @@
 	</div>
 </div>
 <!-- dashboard view -->
-<!-- testrunner-logs view -->
-		</div>
+<!-- testrunner-logs view -->		</div>
 		<!-- container -->
-
 		<script>
 			var statusGroup = {
+                parentCount: 1,
 				passParent: 1,
 				failParent: 0,
 				fatalParent: 0,
@@ -552,7 +442,7 @@
 				warningParent: 0,
 				skipParent: 0,
 				exceptionsParent: 0,
-				
+				childCount: 1,
 				passChild: 1,
 				failChild: 0,
 				fatalChild: 0,
@@ -560,31 +450,27 @@
 				warningChild: 0,
 				skipChild: 0,
 				infoChild: 0,
+				debugChild: 0,
 				exceptionsChild: 0,
-				
-				passGrandChild: 9,
+				grandChildCount: 19,
+				passGrandChild: 19,
 				failGrandChild: 0,
 				fatalGrandChild: 0,
 				errorGrandChild: 0,
 				warningGrandChild: 0,
 				skipGrandChild: 0,
 				infoGrandChild: 0,
+				debugGrandChild: 0,
 				exceptionsGrandChild: 0,
 			};
 		</script>
-		
-			<script src='https://cdn.rawgit.com/anshooarora/extentreports-java/fca20fb7653aade98810546ab96a2a4360e3e712/dist/js/extent.js' type='text/javascript'></script>
-		
-		
- 		<script type='text/javascript'>
- 			
-            
-                $(document).ready(function() {
-
-                });
-            
-        
- 		</script>
+		<script>
+			var timeline = {
+			        "Add shopping items to cart for purchase":77.229
+			};
+		</script>
+		<script src='https://cdn.rawgit.com/extent-framework/extent-github-cdn/b65cd69/v3html/js/extent.js' type='text/javascript'></script>
+		<script type='text/javascript'>
+		</script>
 	</body>
-	
 </html>

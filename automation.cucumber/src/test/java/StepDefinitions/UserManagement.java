@@ -48,9 +48,8 @@ public class UserManagement extends MyRunner {
             createAccountButton= Driver.getElement("createAccountButton");
 
             if (email_accountCreation.isDisplayed())    {
-                email_accountCreation.sendKeys(args0);
+                Driver.sendKeys(email_accountCreation, args0);
                 createAccountButton.click();
-                Report.pass("Email ID entered: " + args0);
                 webDriver.wait(5000);
             }
             else

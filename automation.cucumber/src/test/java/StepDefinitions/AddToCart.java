@@ -1,21 +1,22 @@
 package StepDefinitions;
 
+import cucumber.api.PendingException;
 import cucumber.api.java.en.*;
-import framework.Driver;
-import framework.Report;
+import framework.*;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
-
 import java.util.HashMap;
 import java.util.List;
 
 public class AddToCart  {
-    UserManagement user = new UserManagement();
 
-    @And("^I am logged in$")
-    public void iAmLoggedIn()   {
+    private static HashMap<String, String> shoppingData;
+
+    @And("^I am logged in with username \"([^\"]*)\" and password \"([^\"]*)\"$")
+    public void iAmLoggedInWithUsernameAndPassword(String arg0, String arg1)   {
 
         //navigate to SignIn page
+        UserManagement user = new UserManagement();
         user.iAmInSignInPage();
 
         WebElement logIn_email, logIn_password, logIn_submitButton;
@@ -25,8 +26,8 @@ public class AddToCart  {
 
         if (logIn_submitButton.isDisplayed() && logIn_submitButton.isEnabled())   {
             Report.pass("LogIn button located.");
-            logIn_email.sendKeys(UserManagement.registrationEmail);
-            logIn_password.sendKeys(UserManagement.data.get("Password"));
+            Driver.sendKeys(logIn_email, arg0);
+            Driver.sendKeys(logIn_password, arg1);
             logIn_submitButton.click();
         }
         else
@@ -37,7 +38,7 @@ public class AddToCart  {
     public void iAmInLandingPage() {
         WebElement viewMyAccount = Driver.getElement("viewMyAccount");
         if (viewMyAccount.isDisplayed())
-            Report.pass("User is on landing page with " + UserManagement.registrationEmail);
+            Report.pass("User is on landing page");
         else
             Report.fail("User could not be on landing page.");
     }
@@ -58,8 +59,8 @@ public class AddToCart  {
     public void iEnter(String arg0) {
         WebElement searchBox= Driver.getElement("searchBox");
         if (searchBox.isEnabled())  {
-            Report.pass("Search bos is enabled");
-            searchBox.sendKeys(arg0);
+            Report.pass("Search box is enabled");
+            Driver.sendKeys(searchBox, arg0);
         }
         else
             Report.fail("Search box is disabled.");
@@ -82,6 +83,7 @@ public class AddToCart  {
 
     @And("^I select the item$")
     public void iSelectTheItem()    {
+        shoppingData = new HashMap<>();
         List<WebElement> searchResults = Driver.getElements("searchResults");
         if (searchResults.get(0).isEnabled())   {
             searchResults.get(0).click();
@@ -111,16 +113,19 @@ public class AddToCart  {
     public void iChangeQuantityTo(int arg0) {
         WebElement quantity = Driver.getElement("quantity");
         quantity.clear();
+        Driver.sendKeys(quantity, Integer.toString(arg0));
         quantity.sendKeys(Integer.toString(arg0));
+        shoppingData.put("Quantity", Integer.toString(arg0));
     }
 
     @And("^I set size to S$")
     public void iSetSizeToS()   {
         WebElement sizeElement = Driver.getElement("size");
         Select size= new Select(sizeElement);
-        if (sizeElement.isDisplayed() && sizeElement.isEnabled()) {
+        if (sizeElement.isEnabled()) {
             Report.pass("Size field found.");
             size.selectByVisibleText("S");
+            shoppingData.put("Size", "S");
         }
         else
             Report.fail("Size field is either disabled or not present.");
@@ -131,26 +136,32 @@ public class AddToCart  {
         WebElement productColor_White;
         productColor_White= Driver.getElement("productColor_White");
         productColor_White.click();
+        shoppingData.put("Color", "white");
     }
 
     @And("^I select Add to cart button$")
-    public void iSelectAddToCartButton() {
+    public void iSelectAddToCartButton() throws InterruptedException {
         WebElement addToCart = Driver.getElement("addToCart");
 
-        if (addToCart.isEnabled() && addToCart.isEnabled()) {
-            Report.pass("Add to cart button located.");
+        //Before adding to cart, calculate total product (without tax & shipping)
+        shoppingData.put("TotalProduct", Float.toString(getTotalProduct()));
+
+        if (addToCart.isEnabled()) {
+            Report.pass("Add to cart button enabled.");
             addToCart.click();
+            Report.pass("Add to cart button is clicked.");
         }
         else
-            Report.fail("Add to Cart button is either not enabled or present.");
+            Report.fail("Add to Cart button is either not enabled.");
     }
 
     @And("^item is successfully added to cart$")
     public void itemIsSuccessfullyAddedToCart() {
         WebElement addtoCart_confirmationMessage;
         addtoCart_confirmationMessage = Driver.getElement("addtoCart_confirmationMessage");
-        if (addtoCart_confirmationMessage.isDisplayed())
+        if (addtoCart_confirmationMessage.isDisplayed())    {
             Report.pass("Item successfully added to cart.");
+        }
         else
             Report.fail("Item could not be added to cart.");
     }
@@ -158,19 +169,17 @@ public class AddToCart  {
     @And("^I click on Proceed to checkout button$")
     public void iClickOnProceedToCheckoutButton()   {
         WebElement proceedToCheckout = Driver.getElement("proceedToCheckout");
-
-        if (proceedToCheckout.isEnabled() && proceedToCheckout.isEnabled()) {
-            Report.pass("Proceed to checkout button located.");
+        if (proceedToCheckout.isEnabled()) {
+            Report.pass("Proceed to checkout button is enabled.");
             proceedToCheckout.click();
         }
         else
-            Report.fail("Proceed to checkout button is either not enabled or present.");
+            Report.fail("Proceed to checkout button is not enabled.");
     }
 
     @Then("^Shopping cart summary page is opened$")
     public void shoppingCartSummaryPageIsOpened()   {
-        WebElement shoppingCartSummary;
-        shoppingCartSummary = Driver.getElement("shoppingCartSummary");
+        WebElement shoppingCartSummary = Driver.getElement("shoppingCartSummary");;
         if (shoppingCartSummary.isDisplayed())
             Report.pass("Shopping Cart Summary is opened");
         else
@@ -184,7 +193,7 @@ public class AddToCart  {
 
         WebElement description_prodSummaryPage;
         description_prodSummaryPage = Driver.getElement("description_prodSummaryPage");
-        String description= description_prodSummaryPage.getAttribute("value");
+        String description= description_prodSummaryPage.getText();
         arrDescription_out = description.split(",");
 
         //Fetch description and store it in HashMap
@@ -193,20 +202,65 @@ public class AddToCart  {
             descriptions.put(arrDescription_in[0].trim(), arrDescription_in[1].trim());
         }
 
-        //Compare descriptions
+        //Compare descriptions: Color
+        if (descriptions.get("Color").equals(shoppingData.get("Color")))
+            Report.pass("Expected Color: " + shoppingData.get("Color") +", Actual Color: " + descriptions.get("Color"));
+        else
+            Report.fail("Expected Color: " + shoppingData.get("Color") +", Actual Color: " + descriptions.get("Color"));
 
+        //Compare descriptions: Size
+        if (descriptions.get("Size").equals(shoppingData.get("Size")))
+            Report.pass("Expected Size: " + shoppingData.get("Size") +", Actual Size: " + descriptions.get("Size"));
+        else
+            Report.fail("Expected Size: " + shoppingData.get("Size") +", Actual Size: " + descriptions.get("Size"));
     }
 
     @And("^amount is correctly calculated$")
-    public void amountIsCorrectlyCalculated() {
+    public void amountIsCorrectlyCalculated()   {
+
+        WebElement totalProduct, total_shipping, total_tax, total_price;
+        totalProduct = Driver.getElement("totalProduct");
+        total_shipping = Driver.getElement("total_shipping");
+        total_tax = Driver.getElement("total_tax");
+        total_price = Driver.getElement("total_price");
+
+        //Verify if total product price (without extra costs) is correct
+        if (totalProduct.getText().equals(shoppingData.get("TotalProduct")))
+            Report.pass("Expected TOTAL PRODUCT: " + shoppingData.get("TotalProduct") + ", " +
+                    "Actual TOTAL PRODUCT: " + totalProduct.getText());
+        else
+            Report.fail("Expected TOTAL PRODUCT: " + shoppingData.get("TotalProduct") + ", " +
+                    "Actual TOTAL PRODUCT: " + totalProduct.getText());
+
+        float expectedTotalPrice= Float.parseFloat(shoppingData.get("TotalProduct")) +
+                Float.parseFloat(total_shipping.getText().replace("$", "")) +
+                Float.parseFloat(total_tax.getText().replace("$", ""));
+        float actualTotalPrice= Float.parseFloat(total_price.getText().replace("$", ""));
+
+        //Verify if total price is calculated correctly
+        if (expectedTotalPrice == actualTotalPrice)
+            Report.pass("Total price is calculated correctly.");
+        else
+            Report.fail("otal price is not calculated correctly.");
     }
 
     @And("^Proceed to checkout button is visible$")
     public void proceedToCheckoutButtonIsVisible() {
         WebElement proceedToCheckout = Driver.getElement("proceedToCheckout");
-        if (proceedToCheckout.isEnabled() && proceedToCheckout.isEnabled())
+        if (proceedToCheckout.isDisplayed())
             Report.pass("Proceed to checkout button present on product summary page.");
         else
             Report.pass("Proceed to checkout button is not present on product summary page.");
+    }
+
+    //*************Additional functions*****************
+    private float getTotalProduct() {
+        float quantity, pricePerProduct;
+
+        quantity = Integer.parseInt(shoppingData.get("Quantity"));
+        pricePerProduct = Float.parseFloat(Driver.getElement("priceOfPerProduct")
+                .getText().replace("$",""));
+
+        return (quantity * pricePerProduct);
     }
 }

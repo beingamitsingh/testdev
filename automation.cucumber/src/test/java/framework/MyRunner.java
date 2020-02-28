@@ -26,6 +26,7 @@ import java.util.HashMap;
 @CucumberOptions(plugin = {"com.vimalselvam.cucumber.listener.ExtentCucumberFormatter:"},
         features = "src\\main\\resources\\features",
         glue={"StepDefinitions"},
+        tags = {"@AddItemsToCart"},
         strict = true,
         monochrome = true
 )
@@ -34,8 +35,7 @@ public class MyRunner   {
 
     public static HashMap<String, ArrayList<String>> allObjects;
     public static WebDriver webDriver;
-    private TestNGCucumberRunner testNGCucumberRunner =
-            new TestNGCucumberRunner(this.getClass());
+    private TestNGCucumberRunner testNGCucumberRunner = new TestNGCucumberRunner(this.getClass());
 
     @BeforeClass
     public static void setUp()  {

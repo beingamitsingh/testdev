@@ -3,7 +3,7 @@ Feature: Add shopping items to cart for purchase
   @AddItemsToCart
   Scenario: Adding item to the cart
     Given application is launched
-    And I am logged in
+    And I am logged in with username "amit2@automation.com" and password "password"
     Given I am in Landing page
     When I select Search menu
     And I enter "Blouse"

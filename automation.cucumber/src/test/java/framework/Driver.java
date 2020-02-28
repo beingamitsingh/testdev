@@ -2,9 +2,7 @@ package framework;
 
 import com.vimalselvam.cucumber.listener.Reporter;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import framework.MyRunner.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -76,7 +74,7 @@ public class Driver {
                 case "PartialLinkText":
                     webElements= MyRunner.webDriver.findElements(By.partialLinkText(objectData.get(1)));
                     break;
-                case "XPath":
+                case "Xpath":
                     webElements= MyRunner.webDriver.findElements(By.xpath(objectData.get(1)));
                     break;
             }
@@ -89,7 +87,7 @@ public class Driver {
 
     public static void sendKeys(WebElement webElement, String string)  {
         webElement.sendKeys(string.trim());
-        //String webElementName= webElement.toString().split("->")[1].trim();
-        //Reporter.addStepLog(webElementName + ":" + string.trim());
+        String webElementName= webElement.toString().split("->")[1].trim();
+        Reporter.addStepLog(webElementName + ":" + string.trim());
     }
 }

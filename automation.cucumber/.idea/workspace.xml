@@ -2,27 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dcc19846-1e8d-44df-a267-211ee06c8eb4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/features/addItemsToCart.feature" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/StepDefinitions/AddToCart.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/config.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/drivers/IEDriverServer.exe" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/drivers/chromedriver.exe" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/drivers/operadriver.exe" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/features/userManagement.feature" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/objects.xlsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/test-classes/StepDefinitions/UserManagement.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/test-classes/framework/Config.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/test-classes/framework/Driver.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/test-classes/framework/MyRunner.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/test-classes/framework/Report.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/test-classes/framework/Support.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/features/userManagement.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/features/userManagement.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/features/addItemsToCart.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/features/addItemsToCart.feature" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/objects.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/objects.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/StepDefinitions/AddToCart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/StepDefinitions/AddToCart.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/StepDefinitions/UserManagement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/StepDefinitions/UserManagement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/framework/Driver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/framework/Driver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/framework/MyRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/framework/MyRunner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/reports/executionReport.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/reports/executionReport.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,7 +86,8 @@
       <option name="presentableId" value="Default" />
       <updated>1582736402373</updated>
       <workItem from="1582736406049" duration="33634000" />
-      <workItem from="1582814800848" duration="8263000" />
+      <workItem from="1582814800848" duration="8433000" />
+      <workItem from="1582861468348" duration="9968000" />
     </task>
     <servers />
   </component>
@@ -110,38 +99,38 @@
       <screen x="62" y="0" width="1218" height="720" />
     </state>
     <state x="452" y="119" key="FileChooserDialogImpl/62.0.1218.720@62.0.1218.720" timestamp="1582850919850" />
-    <state width="1175" height="176" key="GridCell.Tab.0.bottom" timestamp="1582840558310">
+    <state width="1175" height="220" key="GridCell.Tab.0.bottom" timestamp="1582869569507">
       <screen x="62" y="0" width="1218" height="720" />
     </state>
-    <state width="1175" height="176" key="GridCell.Tab.0.bottom/62.0.1218.720@62.0.1218.720" timestamp="1582840558310" />
-    <state width="1175" height="176" key="GridCell.Tab.0.center" timestamp="1582840558310">
+    <state width="1175" height="220" key="GridCell.Tab.0.bottom/62.0.1218.720@62.0.1218.720" timestamp="1582869569507" />
+    <state width="1175" height="220" key="GridCell.Tab.0.center" timestamp="1582869569507">
       <screen x="62" y="0" width="1218" height="720" />
     </state>
-    <state width="1175" height="176" key="GridCell.Tab.0.center/62.0.1218.720@62.0.1218.720" timestamp="1582840558310" />
-    <state width="1175" height="176" key="GridCell.Tab.0.left" timestamp="1582840558310">
+    <state width="1175" height="220" key="GridCell.Tab.0.center/62.0.1218.720@62.0.1218.720" timestamp="1582869569507" />
+    <state width="1175" height="220" key="GridCell.Tab.0.left" timestamp="1582869569507">
       <screen x="62" y="0" width="1218" height="720" />
     </state>
-    <state width="1175" height="176" key="GridCell.Tab.0.left/62.0.1218.720@62.0.1218.720" timestamp="1582840558310" />
-    <state width="1175" height="176" key="GridCell.Tab.0.right" timestamp="1582840558310">
+    <state width="1175" height="220" key="GridCell.Tab.0.left/62.0.1218.720@62.0.1218.720" timestamp="1582869569507" />
+    <state width="1175" height="220" key="GridCell.Tab.0.right" timestamp="1582869569507">
       <screen x="62" y="0" width="1218" height="720" />
     </state>
-    <state width="1175" height="176" key="GridCell.Tab.0.right/62.0.1218.720@62.0.1218.720" timestamp="1582840558310" />
-    <state width="1175" height="220" key="GridCell.Tab.1.bottom" timestamp="1582777757306">
+    <state width="1175" height="220" key="GridCell.Tab.0.right/62.0.1218.720@62.0.1218.720" timestamp="1582869569507" />
+    <state width="1175" height="220" key="GridCell.Tab.1.bottom" timestamp="1582869569511">
       <screen x="62" y="0" width="1218" height="720" />
     </state>
-    <state width="1175" height="220" key="GridCell.Tab.1.bottom/62.0.1218.720@62.0.1218.720" timestamp="1582777757306" />
-    <state width="1175" height="220" key="GridCell.Tab.1.center" timestamp="1582777757306">
+    <state width="1175" height="220" key="GridCell.Tab.1.bottom/62.0.1218.720@62.0.1218.720" timestamp="1582869569511" />
+    <state width="1175" height="220" key="GridCell.Tab.1.center" timestamp="1582869569507">
       <screen x="62" y="0" width="1218" height="720" />
     </state>
-    <state width="1175" height="220" key="GridCell.Tab.1.center/62.0.1218.720@62.0.1218.720" timestamp="1582777757306" />
-    <state width="1175" height="220" key="GridCell.Tab.1.left" timestamp="1582777757306">
+    <state width="1175" height="220" key="GridCell.Tab.1.center/62.0.1218.720@62.0.1218.720" timestamp="1582869569507" />
+    <state width="1175" height="220" key="GridCell.Tab.1.left" timestamp="1582869569507">
       <screen x="62" y="0" width="1218" height="720" />
     </state>
-    <state width="1175" height="220" key="GridCell.Tab.1.left/62.0.1218.720@62.0.1218.720" timestamp="1582777757306" />
-    <state width="1175" height="220" key="GridCell.Tab.1.right" timestamp="1582777757306">
+    <state width="1175" height="220" key="GridCell.Tab.1.left/62.0.1218.720@62.0.1218.720" timestamp="1582869569507" />
+    <state width="1175" height="220" key="GridCell.Tab.1.right" timestamp="1582869569511">
       <screen x="62" y="0" width="1218" height="720" />
     </state>
-    <state width="1175" height="220" key="GridCell.Tab.1.right/62.0.1218.720@62.0.1218.720" timestamp="1582777757306" />
+    <state width="1175" height="220" key="GridCell.Tab.1.right/62.0.1218.720@62.0.1218.720" timestamp="1582869569511" />
     <state x="175" y="6" key="SettingsEditor" timestamp="1582746918294">
       <screen x="62" y="0" width="1218" height="720" />
     </state>
@@ -159,9 +148,14 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/StepDefinitions/UserManagement.java</url>
-          <line>15</line>
-          <option name="timeStamp" value="56" />
+          <url>file://$PROJECT_DIR$/src/test/java/StepDefinitions/AddToCart.java</url>
+          <line>161</line>
+          <option name="timeStamp" value="93" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/StepDefinitions/AddToCart.java</url>
+          <line>146</line>
+          <option name="timeStamp" value="95" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
