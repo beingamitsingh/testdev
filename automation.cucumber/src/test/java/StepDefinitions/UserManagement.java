@@ -8,12 +8,12 @@ import java.util.Map;
 
 public class UserManagement extends MyRunner {
 
-    private static Map<String, String> data;
-    private static String registrationEmail;
+    protected static Map<String, String> data;
+    protected static String registrationEmail;
 
     @Given("^application is launched$")
     public void applicationIsLaunched() {
-        webDriver.get("http://automationpractice.com/index.php");
+        webDriver.get(Config.getProperty("appURL"));
         webDriver.manage().window().maximize();
 
         if (webDriver.getTitle().equals("My Store"))
@@ -36,8 +36,6 @@ public class UserManagement extends MyRunner {
             Report.pass("User is on Sign in page");
         else
             Report.fail("User is not on sign in page");
-
-        System.out.println("You are in sign in page.");
     }
 
     @When("^I enter email \"([^\"]*)\" in Create New Account section$")

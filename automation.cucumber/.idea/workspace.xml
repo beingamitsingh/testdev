@@ -1,7 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="dcc19846-1e8d-44df-a267-211ee06c8eb4" name="Default Changelist" comment="" />
+    <list default="true" id="dcc19846-1e8d-44df-a267-211ee06c8eb4" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/features/addItemsToCart.feature" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/StepDefinitions/AddToCart.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/config.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/drivers/IEDriverServer.exe" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/drivers/chromedriver.exe" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/drivers/operadriver.exe" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/features/userManagement.feature" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/objects.xlsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/test-classes/StepDefinitions/UserManagement.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/test-classes/framework/Config.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/test-classes/framework/Driver.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/test-classes/framework/MyRunner.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/test-classes/framework/Report.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/test-classes/framework/Support.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/features/userManagement.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/features/userManagement.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/objects.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/objects.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/StepDefinitions/UserManagement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/StepDefinitions/UserManagement.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,6 +36,9 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
   <component name="MavenImportPreferences">
     <option name="importingSettings">
       <MavenImportingSettings>
@@ -23,6 +48,9 @@
     </option>
   </component>
   <component name="ProjectId" id="1YLyvhsGby8A80TeNxqGF5lwpXV" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -30,8 +58,10 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.runner" />
   </component>
@@ -68,6 +98,7 @@
       <option name="presentableId" value="Default" />
       <updated>1582736402373</updated>
       <workItem from="1582736406049" duration="33634000" />
+      <workItem from="1582814800848" duration="8263000" />
     </task>
     <servers />
   </component>
@@ -75,22 +106,26 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1175" height="220" key="GridCell.Tab.0.bottom" timestamp="1582777757306">
+    <state x="452" y="119" key="FileChooserDialogImpl" timestamp="1582850919850">
       <screen x="62" y="0" width="1218" height="720" />
     </state>
-    <state width="1175" height="220" key="GridCell.Tab.0.bottom/62.0.1218.720@62.0.1218.720" timestamp="1582777757306" />
-    <state width="1175" height="220" key="GridCell.Tab.0.center" timestamp="1582777757306">
+    <state x="452" y="119" key="FileChooserDialogImpl/62.0.1218.720@62.0.1218.720" timestamp="1582850919850" />
+    <state width="1175" height="176" key="GridCell.Tab.0.bottom" timestamp="1582840558310">
       <screen x="62" y="0" width="1218" height="720" />
     </state>
-    <state width="1175" height="220" key="GridCell.Tab.0.center/62.0.1218.720@62.0.1218.720" timestamp="1582777757306" />
-    <state width="1175" height="220" key="GridCell.Tab.0.left" timestamp="1582777757306">
+    <state width="1175" height="176" key="GridCell.Tab.0.bottom/62.0.1218.720@62.0.1218.720" timestamp="1582840558310" />
+    <state width="1175" height="176" key="GridCell.Tab.0.center" timestamp="1582840558310">
       <screen x="62" y="0" width="1218" height="720" />
     </state>
-    <state width="1175" height="220" key="GridCell.Tab.0.left/62.0.1218.720@62.0.1218.720" timestamp="1582777757306" />
-    <state width="1175" height="220" key="GridCell.Tab.0.right" timestamp="1582777757306">
+    <state width="1175" height="176" key="GridCell.Tab.0.center/62.0.1218.720@62.0.1218.720" timestamp="1582840558310" />
+    <state width="1175" height="176" key="GridCell.Tab.0.left" timestamp="1582840558310">
       <screen x="62" y="0" width="1218" height="720" />
     </state>
-    <state width="1175" height="220" key="GridCell.Tab.0.right/62.0.1218.720@62.0.1218.720" timestamp="1582777757306" />
+    <state width="1175" height="176" key="GridCell.Tab.0.left/62.0.1218.720@62.0.1218.720" timestamp="1582840558310" />
+    <state width="1175" height="176" key="GridCell.Tab.0.right" timestamp="1582840558310">
+      <screen x="62" y="0" width="1218" height="720" />
+    </state>
+    <state width="1175" height="176" key="GridCell.Tab.0.right/62.0.1218.720@62.0.1218.720" timestamp="1582840558310" />
     <state width="1175" height="220" key="GridCell.Tab.1.bottom" timestamp="1582777757306">
       <screen x="62" y="0" width="1218" height="720" />
     </state>
@@ -111,10 +146,10 @@
       <screen x="62" y="0" width="1218" height="720" />
     </state>
     <state x="175" y="6" key="SettingsEditor/62.0.1218.720@62.0.1218.720" timestamp="1582746918294" />
-    <state x="425" y="291" key="org.jetbrains.plugins.cucumber.inspections.ui.CreateStepDefinitionFileDialog" timestamp="1582737089695">
+    <state x="425" y="291" key="org.jetbrains.plugins.cucumber.inspections.ui.CreateStepDefinitionFileDialog" timestamp="1582850926139">
       <screen x="62" y="0" width="1218" height="720" />
     </state>
-    <state x="425" y="291" key="org.jetbrains.plugins.cucumber.inspections.ui.CreateStepDefinitionFileDialog/62.0.1218.720@62.0.1218.720" timestamp="1582737089695" />
+    <state x="425" y="291" key="org.jetbrains.plugins.cucumber.inspections.ui.CreateStepDefinitionFileDialog/62.0.1218.720@62.0.1218.720" timestamp="1582850926139" />
     <state x="334" y="41" width="672" height="678" key="search.everywhere.popup" timestamp="1582763679343">
       <screen x="62" y="0" width="1218" height="720" />
     </state>
