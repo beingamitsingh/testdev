@@ -8,15 +8,9 @@ import org.junit.Assert;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 
-import javax.imageio.ImageIO;
-import java.awt.*;
-import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
 import java.sql.Timestamp;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 import static org.junit.Assert.assertTrue;
 
@@ -65,10 +59,9 @@ public class Report {
         try {
             TakesScreenshot ts = (TakesScreenshot) MyRunner.webDriver;
             File finalSource = ts.getScreenshotAs(OutputType.FILE);
-            String destination = MyRunner.sReportPath + "\\failureScreenshots\\" + screenshotName + ".png";
-            File finalDestination = new File(destination);
+            File finalDestination = new File(MyRunner.sReportPath + "\\failureScreenshots\\" + screenshotName + ".png");
             FileUtils.copyFile(finalSource, finalDestination);
-            Reporter.addScreenCaptureFromPath(finalDestination.toString());
+            Reporter.addScreenCaptureFromPath("failureScreenshots\\" + screenshotName + ".png");
         }
         catch (IOException e) {
             e.printStackTrace();
