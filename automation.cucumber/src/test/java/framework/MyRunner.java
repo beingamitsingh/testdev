@@ -17,7 +17,10 @@ import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+
+import java.awt.*;
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -67,7 +70,7 @@ public class MyRunner   {
     }
 
     @AfterClass
-    public static void tearDown()  {
+    public static void tearDown() throws IOException {
         Reporter.loadXMLConfig(new File("extent-config.xml"));
         Reporter.setSystemInfo("Tester Name", System.getProperty("user.name"));
         Reporter.setSystemInfo("OS", "Windows 10, 64-bit");

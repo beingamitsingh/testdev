@@ -17,7 +17,6 @@ import static org.junit.Assert.assertTrue;
 public class Report {
 
     public static void pass(String message)  {
-
         Reporter.addStepLog(message);
         Reporter.setTestRunnerOutput(java.time.LocalTime.now().toString() + " : " + message);
         Reporter.setTestRunnerOutput("<br>");
@@ -25,7 +24,6 @@ public class Report {
     }
 
     public static void fail(String message) {
-
         try {
             Reporter.addStepLog(message);
             Reporter.setTestRunnerOutput(java.time.LocalTime.now().toString() + " : " + message);
