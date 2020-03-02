@@ -3,11 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="dcc19846-1e8d-44df-a267-211ee06c8eb4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/features/addItemsToWishlist.feature" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/failureScreenshots/Accountcreation1583138481362.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/features/userManagement.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/features/userManagement.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/framework/Report.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/framework/Report.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/reports/ExecutionReport_1583129074559/Accountcreation1583129109474.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/reports/ExecutionReport_1583129074559/executionReport.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/reports/ExecutionReport_1583139030476/executionReport.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/reports/ExecutionReport_1583139030476/failureScreenshots/Accountcreation1583139075142.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,7 +85,7 @@
       <workItem from="1582814800848" duration="8433000" />
       <workItem from="1582861468348" duration="20348000" />
       <workItem from="1582908724228" duration="149000" />
-      <workItem from="1583039999566" duration="32669000" />
+      <workItem from="1583039999566" duration="33706000" />
     </task>
     <servers />
   </component>
@@ -98,38 +97,38 @@
       <screen x="62" y="0" width="1218" height="720" />
     </state>
     <state x="452" y="119" key="FileChooserDialogImpl/62.0.1218.720@62.0.1218.720" timestamp="1582908873556" />
-    <state width="1175" height="205" key="GridCell.Tab.0.bottom" timestamp="1583139020291">
+    <state width="1175" height="176" key="GridCell.Tab.0.bottom" timestamp="1583140068988">
       <screen x="62" y="0" width="1218" height="720" />
     </state>
-    <state width="1175" height="205" key="GridCell.Tab.0.bottom/62.0.1218.720@62.0.1218.720" timestamp="1583139020291" />
-    <state width="1175" height="205" key="GridCell.Tab.0.center" timestamp="1583139020291">
+    <state width="1175" height="176" key="GridCell.Tab.0.bottom/62.0.1218.720@62.0.1218.720" timestamp="1583140068988" />
+    <state width="1175" height="176" key="GridCell.Tab.0.center" timestamp="1583140068987">
       <screen x="62" y="0" width="1218" height="720" />
     </state>
-    <state width="1175" height="205" key="GridCell.Tab.0.center/62.0.1218.720@62.0.1218.720" timestamp="1583139020291" />
-    <state width="1175" height="205" key="GridCell.Tab.0.left" timestamp="1583139020291">
+    <state width="1175" height="176" key="GridCell.Tab.0.center/62.0.1218.720@62.0.1218.720" timestamp="1583140068987" />
+    <state width="1175" height="176" key="GridCell.Tab.0.left" timestamp="1583140068987">
       <screen x="62" y="0" width="1218" height="720" />
     </state>
-    <state width="1175" height="205" key="GridCell.Tab.0.left/62.0.1218.720@62.0.1218.720" timestamp="1583139020291" />
-    <state width="1175" height="205" key="GridCell.Tab.0.right" timestamp="1583139020291">
+    <state width="1175" height="176" key="GridCell.Tab.0.left/62.0.1218.720@62.0.1218.720" timestamp="1583140068987" />
+    <state width="1175" height="176" key="GridCell.Tab.0.right" timestamp="1583140068988">
       <screen x="62" y="0" width="1218" height="720" />
     </state>
-    <state width="1175" height="205" key="GridCell.Tab.0.right/62.0.1218.720@62.0.1218.720" timestamp="1583139020291" />
-    <state width="1175" height="205" key="GridCell.Tab.1.bottom" timestamp="1583139075898">
+    <state width="1175" height="176" key="GridCell.Tab.0.right/62.0.1218.720@62.0.1218.720" timestamp="1583140068988" />
+    <state width="1175" height="205" key="GridCell.Tab.1.bottom" timestamp="1583139719147">
       <screen x="62" y="0" width="1218" height="720" />
     </state>
-    <state width="1175" height="205" key="GridCell.Tab.1.bottom/62.0.1218.720@62.0.1218.720" timestamp="1583139075898" />
-    <state width="1175" height="205" key="GridCell.Tab.1.center" timestamp="1583139075898">
+    <state width="1175" height="205" key="GridCell.Tab.1.bottom/62.0.1218.720@62.0.1218.720" timestamp="1583139719147" />
+    <state width="1175" height="205" key="GridCell.Tab.1.center" timestamp="1583139719147">
       <screen x="62" y="0" width="1218" height="720" />
     </state>
-    <state width="1175" height="205" key="GridCell.Tab.1.center/62.0.1218.720@62.0.1218.720" timestamp="1583139075898" />
-    <state width="1175" height="205" key="GridCell.Tab.1.left" timestamp="1583139075898">
+    <state width="1175" height="205" key="GridCell.Tab.1.center/62.0.1218.720@62.0.1218.720" timestamp="1583139719147" />
+    <state width="1175" height="205" key="GridCell.Tab.1.left" timestamp="1583139719146">
       <screen x="62" y="0" width="1218" height="720" />
     </state>
-    <state width="1175" height="205" key="GridCell.Tab.1.left/62.0.1218.720@62.0.1218.720" timestamp="1583139075898" />
-    <state width="1175" height="205" key="GridCell.Tab.1.right" timestamp="1583139075898">
+    <state width="1175" height="205" key="GridCell.Tab.1.left/62.0.1218.720@62.0.1218.720" timestamp="1583139719146" />
+    <state width="1175" height="205" key="GridCell.Tab.1.right" timestamp="1583139719147">
       <screen x="62" y="0" width="1218" height="720" />
     </state>
-    <state width="1175" height="205" key="GridCell.Tab.1.right/62.0.1218.720@62.0.1218.720" timestamp="1583139075898" />
+    <state width="1175" height="205" key="GridCell.Tab.1.right/62.0.1218.720@62.0.1218.720" timestamp="1583139719147" />
     <state x="175" y="6" key="SettingsEditor" timestamp="1582746918294">
       <screen x="62" y="0" width="1218" height="720" />
     </state>
@@ -142,22 +141,5 @@
       <screen x="62" y="0" width="1218" height="720" />
     </state>
     <state x="334" y="41" width="672" height="678" key="search.everywhere.popup/62.0.1218.720@62.0.1218.720" timestamp="1582763679343" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/framework/Report.java</url>
-          <line>62</line>
-          <option name="timeStamp" value="148" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
-    <watches-manager>
-      <configuration name="JUnit">
-        <watch expression="finalDestination.toString()" language="JAVA" />
-        <watch expression="MyRunner.sReportPath + &quot;\\failureScreenshots\\&quot; + screenshotName + &quot;.png&quot;" language="JAVA" />
-      </configuration>
-    </watches-manager>
   </component>
 </project>

@@ -4,7 +4,7 @@ Feature: User Management Section
   Scenario: Account creation
     Given application is launched
     And I am in Sign In page
-    When I enter email "amit55@automation.com" in Create New Account section
+    When I enter email "amit58@automation.com" in Create New Account section
     And I enter valid account details
       |Salutation   |Mr.  |
       |FirstName    |Amit |
