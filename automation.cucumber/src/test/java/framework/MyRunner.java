@@ -17,7 +17,6 @@ import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -26,7 +25,6 @@ import java.util.HashMap;
 @CucumberOptions(plugin = {"com.vimalselvam.cucumber.listener.ExtentCucumberFormatter:"},
         features = "src\\main\\resources\\features",
         glue={"StepDefinitions"},
-        tags = {"@AddItemsToCart"},
         strict = true,
         monochrome = true
 )
@@ -35,6 +33,7 @@ public class MyRunner   {
 
     public static HashMap<String, ArrayList<String>> allObjects;
     public static WebDriver webDriver;
+    protected static String sReportPath;
     private TestNGCucumberRunner testNGCucumberRunner = new TestNGCucumberRunner(this.getClass());
 
     @BeforeClass
@@ -48,9 +47,12 @@ public class MyRunner   {
         //Initialize Webdriver
         webDriver= Support.setBrowser(Config.getProperty("browser"));
 
+        //Set report path
+        sReportPath = Report.createReportFolder();
+
         //Initialize ExtentReports
         ExtentProperties extentProperties = ExtentProperties.INSTANCE;
-        extentProperties.setReportPath(Config.getProperty("reportPath") + "\\executionReport.html");
+        extentProperties.setReportPath(sReportPath + "\\executionReport.html");
         extentProperties.setProjectName("Test task for testdevlabs.com");
     }
 
@@ -71,6 +73,6 @@ public class MyRunner   {
         Reporter.setSystemInfo("OS", "Windows 10, 64-bit");
         Reporter.assignAuthor(System.getProperty("user.name"));
 
-        //webDriver.quit();
+        webDriver.quit();
     }
 }

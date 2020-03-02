@@ -4,6 +4,12 @@ import cucumber.api.DataTable;
 import cucumber.api.java.en.*;
 import framework.*;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Map;
 
 public class UserManagement extends MyRunner {
@@ -24,9 +30,14 @@ public class UserManagement extends MyRunner {
 
     @And("^I am in Sign In page$")
     public void iAmInSignInPage() {
-        WebElement signIn_Home,signInButton;
-        signIn_Home= Driver.getElement("signIn_Home");
+        WebElement signIn_Home, signInButton;
 
+        //Log Out if user is already logged in
+        if (Driver.getElements("signOutButton").size() !=0)    {
+            Driver.getElements("signOutButton").get(0).click();
+        }
+
+        signIn_Home= Driver.getElement("signIn_Home");
         if (signIn_Home.isDisplayed()) {
             signIn_Home.click();
         }
@@ -39,7 +50,7 @@ public class UserManagement extends MyRunner {
     }
 
     @When("^I enter email \"([^\"]*)\" in Create New Account section$")
-    public void iEnterEmailInCreateNewAccountSection(String args0) throws InterruptedException {
+    public void iEnterEmailInCreateNewAccountSection(String args0) throws InterruptedException  {
         WebElement email_accountCreation, createAccountButton;
         registrationEmail= args0;
 
@@ -49,8 +60,8 @@ public class UserManagement extends MyRunner {
 
             if (email_accountCreation.isDisplayed())    {
                 Driver.sendKeys(email_accountCreation, args0);
+                Report.pass("Email ID entered: " + args0);
                 createAccountButton.click();
-                webDriver.wait(5000);
             }
             else
                 Report.fail("Email ID field could not be located");
@@ -58,12 +69,14 @@ public class UserManagement extends MyRunner {
     }
 
     @And("^I enter valid account details$")
-    public void iEnterValidAccountDetails(DataTable registrationData) {
+    public void iEnterValidAccountDetails(DataTable registrationData) throws InterruptedException {
         WebElement salutation_mr, salutation_mrs, firstName, lastName, password, dob_day, dob_month, dob_year,
                 newsLetter, specialOffers, company, firstName1, lastName1,address1, address2, city, state, zipCode, country,
                 additionalInfo, homePhone, mobilePhone, alias;
 
-        synchronized (webDriver) {
+        synchronized (webDriver)    {
+
+            Thread.sleep(4000);
             salutation_mr= Driver.getElement("reg_salutation_Mr");
             salutation_mrs= Driver.getElement("reg_salutation_Mrs");
             firstName = Driver.getElement("reg_firstName");
@@ -140,7 +153,9 @@ public class UserManagement extends MyRunner {
             Driver.sendKeys(additionalInfo, data.get("AdditionalInfo"));
             Driver.sendKeys(homePhone, data.get("HomePhone"));
             Driver.sendKeys(mobilePhone, data.get("MobileNumber"));
-            Driver.sendKeys(alias, data.get("Alias"));
+
+            if (alias.getAttribute("value").equals(""))
+                Driver.sendKeys(alias, data.get("FirstName"));
         }
     }
 
@@ -157,6 +172,9 @@ public class UserManagement extends MyRunner {
 
     @And("^My Account page is opened$")
     public void myAccountPageIsOpened() {
+
+        Driver.wait("myAccount_heading", 5);
+
         WebElement myAccount_heading= Driver.getElement("myAccount_heading");
         if (myAccount_heading.isDisplayed())
             Report.pass("My account page is opened.");
@@ -168,6 +186,7 @@ public class UserManagement extends MyRunner {
     public void iClickOnMyPersonalInformationButton() {
         WebElement myPersonalInfo = Driver.getElement("myPersonalInformationMenu");
         if (myPersonalInfo.isDisplayed() && myPersonalInfo.isEnabled()) {
+            myPersonalInfo.click();
             Report.pass("MY PERSONAL INFORMATION is clicked");
         }
         else
@@ -176,6 +195,9 @@ public class UserManagement extends MyRunner {
 
     @Then("^Your Personal Information page is opened$")
     public void yourPersonalInformationPageIsOpened()   {
+
+        Driver.wait("myPersonalInformationHeading", 5);
+
         WebElement myPersonalInfoHeading = Driver.getElement("myPersonalInformationHeading");
         if (myPersonalInfoHeading.isDisplayed())
             Report.pass("PERSONAL INFORMATION page is opened");
@@ -188,15 +210,26 @@ public class UserManagement extends MyRunner {
         WebElement salutation_mr, salutation_mrs, firstName, lastName,emailAddress, dob_day, dob_month, dob_year;
         salutation_mr= Driver.getElement("reg_salutation_Mr");
         salutation_mrs= Driver.getElement("reg_salutation_Mrs");
-        firstName = Driver.getElement("reg_firstName");
-        lastName = Driver.getElement("reg_lastName");
+        firstName = Driver.getElement("reg_firstName1");
+        lastName = Driver.getElement("reg_lastName1");
         emailAddress = Driver.getElement("reg_email");
         dob_day = Driver.getElement("reg_dob_day");
         dob_month = Driver.getElement("reg_dob_month");
         dob_year = Driver.getElement("reg_dob_year");
 
         //verifySalutation
-        if (data.get("salutation_mr").equals("Mr."))
+        if (data.get("Salutation").equals("Mr."))   {
+            if (salutation_mr.isSelected())
+                Report.pass("Social Title Mr. is selected.");
+            else
+                Report.fail("Social Title Mr. is not selected.");
+        }
+        else if (data.get("Salutation").equals("Mrs.")) {
+            if (salutation_mrs.isSelected())
+                Report.pass("Social Title Mrs. is selected.");
+            else
+                Report.fail("Social Title Mrs. is not selected.");
+        }
 
         //verify firstName
         if (firstName.getAttribute("value").equals(data.get("FirstName")))
@@ -217,12 +250,31 @@ public class UserManagement extends MyRunner {
             Report.fail("EMAIL ID does not match the input data.");
 
         //verify date of birth - DAY
-        String day = dob_day.getAttribute("value");
-        String month = dob_month.getAttribute("value");
-        String year = dob_year.getAttribute("value");
-        if ((day + "-" + month + "+" + year).equals(data.get("DOB")))
+        Select select_day = new Select(dob_day);
+        Select select_month = new Select(dob_day);
+        Select select_year = new Select(dob_day);
+        String day = select_day.getFirstSelectedOption().getText();
+        String month = select_month.getFirstSelectedOption().getText();
+        String year = select_year.getFirstSelectedOption().getText();
+
+        String actualDOB= day + "-" + month + "-" + year;
+        if (actualDOB.equals(data.get("DOB")))
             Report.pass("DOB matches the input data");
         else
-            Report.fail("DOB does not match the input data.");
+            Report.fail("Expected DOB: " + data.get("DOB") + ", Actual DOB: " + actualDOB);
+    }
+
+    //*************Additional functions*****************
+    private int mapMonths(String month) {
+        Date date = null;
+        Calendar cal = Calendar.getInstance();
+        try {
+            date = new SimpleDateFormat("DD-MM-YYYY").parse(month);
+            cal.setTime(date);
+        }
+        catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return cal.get(Calendar.MONTH);
     }
 }

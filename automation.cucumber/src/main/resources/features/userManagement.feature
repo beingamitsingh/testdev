@@ -4,13 +4,13 @@ Feature: User Management Section
   Scenario: Account creation
     Given application is launched
     And I am in Sign In page
-    When I enter email "amit10@automation.com" in Create New Account section
+    When I enter email "amit50@automation.com" in Create New Account section
     And I enter valid account details
       |Salutation   |Mr.  |
       |FirstName    |Amit |
       |LastName     |Singh  |
       |Password     |password  |
-      |DOB          |12-December-1965  |
+      |DOB          |12-July-1995  |
       |SignUp_NewsLetter  |N  |
       |SpecialOffers      |Y  |
       |Company      |testdevlabs  |

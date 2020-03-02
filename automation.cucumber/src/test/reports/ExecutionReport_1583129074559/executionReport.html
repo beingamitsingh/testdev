@@ -36,7 +36,9 @@
 		<ul id='slide-out' class='side-nav fixed hide-on-med-and-down'>
 			<li class='waves-effect active'><a href='#!' view='test-view' onclick="configureView(0);chartsView('test');"><i class='material-icons'>dashboard</i></a></li>
 						<li class='waves-effect'><a href='#!' view='category-view' onclick="configureView(1)"><i class='material-icons'>label_outline</i></a></li>
+			<li class='waves-effect'><a href='#!' view='exception-view' onclick="configureView(2)"><i class='material-icons'>bug_report</i></a></li>
 			<li class='waves-effect'><a href='#!' onclick="configureView(-1);chartsView('dashboard');" view='dashboard-view'><i class='material-icons'>track_changes</i></a></li>
+			<li class='waves-effect'><a href='#!' onclick="configureView(-1)" view='testrunner-logs-view'><i class='material-icons'>note</i></a></li>
 		</ul>
 		<!-- report name -->
 		<span class='report-name'>ExtentReports</span>
@@ -45,7 +47,7 @@
 		<!-- nav-right -->
 		<ul id='nav-mobile' class='right hide-on-med-and-down nav-right'>
 			<a href='#!'>
-			<span class='label blue darken-3 suite-start-time'>Feb 28, 2020 07:58:03 AM</span>
+			<span class='label blue darken-3 suite-start-time'>Mar 2, 2020 08:04:34 AM</span>
 			</a>
 		</ul>
 	</div>
@@ -61,6 +63,7 @@
 				</a>
 				<ul id='tests-toggle' class='dropdown-content'>
 										<li status='pass'><a href='#!'>Pass <i class='material-icons green-text'>check_circle</i></a></li>
+					<li status='fail'><a href='#!'>Fail <i class='material-icons red-text'>cancel</i></a></li>
 					<li class='divider'></li>
 					<li status='clear' clear='true'><a href='#!'>Clear Filters <i class='material-icons'>clear</i></a></li>
 				</ul>
@@ -73,6 +76,7 @@
 				</a>
 				<ul id='category-toggle' class='dropdown-content'>
 					<li><a href='#'>@AddItemsToCart</a></li>
+					<li><a href='#'>@userAccountCreation</a></li>
 					<li class='divider'></li>
 					<li class='clear'><a href='#!' clear='true'>Clear Filters</a></li>
 				</ul>
@@ -113,10 +117,10 @@
                     <canvas id='parent-analysis' width='90' height='70'></canvas>
                 </div>
                 <div class='block text-small'>
-                    <span class='tooltipped' data-position='top' data-tooltip='100%'><span class='strong'>1</span> feature(s) passed</span>
+                    <span class='tooltipped' data-position='top' data-tooltip='50%'><span class='strong'>1</span> feature(s) passed</span>
                 </div>
                 <div class='block text-small'>
-                    <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> feature(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
+                    <span class='strong tooltipped' data-position='top' data-tooltip='50%'>1</span> feature(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
                 </div>
             </div>
         </div>
@@ -127,10 +131,10 @@
                     <canvas id='child-analysis' width='90' height='70'></canvas>
                 </div>
                 <div class='block text-small'>
-                    <span class='tooltipped' data-position='top' data-tooltip='100%'><span class='strong'>1</span> scenario(s) passed</span>
+                    <span class='tooltipped' data-position='top' data-tooltip='50%'><span class='strong'>1</span> scenario(s) passed</span>
                 </div>
                 <div class='block text-small'>
-                    <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> scenario(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
+                    <span class='strong tooltipped' data-position='top' data-tooltip='50%'>1</span> scenario(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
                 </div>
             </div>
         </div>
@@ -141,10 +145,10 @@
                     <canvas id='grandchild-analysis' width='90' height='70'></canvas>
                 </div>
                 <div class='block text-small'>
-                    <span class='tooltipped' data-position='top' data-tooltip='100%'><span class='strong'>19</span> step(s) passed</span>
+                    <span class='tooltipped' data-position='top' data-tooltip='96.429%'><span class='strong'>27</span> step(s) passed</span>
                 </div>
                 <div class='block text-small'>
-                    <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> step(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
+                    <span class='strong tooltipped' data-position='top' data-tooltip='3.571%'>1</span> step(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
                 </div>
             </div>
         </div>
@@ -165,7 +169,7 @@
 				<li class='test displayed active has-leaf pass' status='pass' bdd='true' test-id='1'>
 					<div class='test-heading'>
 						<span class='test-name'>Add shopping items to cart for purchase</span>
-						<span class='test-time'>Feb 28, 2020 07:58:04 AM</span>
+						<span class='test-time'>Mar 2, 2020 08:04:34 AM</span>
 						<span class='test-status right pass'>pass</span>
 					</div>
 					<div class='test-content hide'>
@@ -179,7 +183,7 @@
     <div class='category-list'>
         <span class='category label'>@AddItemsToCart</span>
     </div>
-    <span class='duration right label'>0h 1m 17s+229ms</span>
+    <span class='duration right label'>0h 0m 21s+691ms</span>
     <div class="bdd-test">
         <div class="scenario-name"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span> Scenario: Adding item to the cart</div>
     </div>
@@ -190,9 +194,11 @@
                 <div class="node-step">passed</div>
         </li>
         <li test-id='4' class='node and pass' status='pass'>
-            <div class="step-name" title=""><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>And I am logged in</div>
+            <div class="step-name" title=""><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>And I am logged in with username "amit3@automation.com" and password "password"</div>
                 <div class="node-step">User is on Sign in page</div>
                 <div class="node-step">LogIn button located.</div>
+                <div class="node-step">id: email]:amit3@automation.com</div>
+                <div class="node-step">id: passwd]:password</div>
                 <div class="node-step">passed</div>
         </li>
         <li test-id='5' class='node given pass' status='pass'>
@@ -208,6 +214,7 @@
         <li test-id='7' class='node and pass' status='pass'>
             <div class="step-name" title=""><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>And I enter "Blouse"</div>
                 <div class="node-step">Search box is enabled</div>
+                <div class="node-step">id: search_query_top]:Blouse</div>
                 <div class="node-step">passed</div>
         </li>
         <li test-id='8' class='node and pass' status='pass'>
@@ -232,6 +239,7 @@
         </li>
         <li test-id='12' class='node and pass' status='pass'>
             <div class="step-name" title=""><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>And I change quantity to 2</div>
+                <div class="node-step">id: quantity_wanted]:2</div>
                 <div class="node-step">passed</div>
         </li>
         <li test-id='13' class='node and pass' status='pass'>
@@ -266,16 +274,121 @@
         </li>
         <li test-id='19' class='node and pass' status='pass'>
             <div class="step-name" title=""><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>And correct description is specified</div>
+                <div class="node-step">Expected Color: White, Actual Color: White</div>
+                <div class="node-step">Expected Size: S, Actual Size: S</div>
                 <div class="node-step">passed</div>
         </li>
         <li test-id='20' class='node and pass' status='pass'>
             <div class="step-name" title=""><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>And amount is correctly calculated</div>
+                <div class="node-step">Expected TOTAL PRODUCT: 54.0, Actual TOTAL PRODUCT: $54.00</div>
+                <div class="node-step">Total price is calculated correctly.</div>
                 <div class="node-step">passed</div>
         </li>
         <li test-id='21' class='node and pass' status='pass'>
             <div class="step-name" title=""><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>And Proceed to checkout button is visible</div>
                 <div class="node-step">Proceed to checkout button present on product summary page.</div>
                 <div class="node-step">passed</div>
+        </li>
+    </ul>
+</div>
+					</div>
+				</li>
+				<li class='test displayed active has-leaf fail' status='fail' bdd='true' test-id='22'>
+					<div class='test-heading'>
+						<span class='test-name'>User Management Section</span>
+						<span class='test-time'>Mar 2, 2020 08:04:56 AM</span>
+						<span class='test-status right fail'>fail</span>
+					</div>
+					<div class='test-content hide'>
+<div class="sr-filters bdd-filters">
+    <a class="btn-floating waves-effect waves-light pass green" title="pass"><i class='material-icons'>check_circle</i></a>
+    <a class="btn-floating waves-effect waves-light fail red" title="fail"><i class='material-icons'>cancel</i></a>
+    <a class="btn-floating waves-effect waves-light skip blue" title="skip"><i class='material-icons'>redo</i></a>
+    <a class="btn-floating waves-effect waves-light clear grey" title="clear"><i class='material-icons'>clear</i></a>
+</div>
+<div class='scenario node' test-id='23' status='fail'>
+    <div class='category-list'>
+        <span class='category label'>@userAccountCreation</span>
+    </div>
+    <span class='duration right label'>0h 0m 41s+624ms</span>
+    <div class="bdd-test">
+        <div class="scenario-name"><span class='status fail' title='fail'><i class='material-icons'>cancel</i></span> Scenario: Account creation</div>
+    </div>
+    <ul class='steps'>
+        <li test-id='24' class='node given pass' status='pass'>
+            <div class="step-name" title=""><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>Given application is launched</div>
+                <div class="node-step">Application successfully launched.</div>
+                <div class="node-step">passed</div>
+        </li>
+        <li test-id='25' class='node and pass' status='pass'>
+            <div class="step-name" title=""><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>And I am in Sign In page</div>
+                <div class="node-step">User is on Sign in page</div>
+                <div class="node-step">passed</div>
+        </li>
+        <li test-id='26' class='node when pass' status='pass'>
+            <div class="step-name" title=""><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>When I enter email "amit49@automation.com" in Create New Account section</div>
+                <div class="node-step">id: email_create]:amit49@automation.com</div>
+                <div class="node-step">Email ID entered: amit49@automation.com</div>
+                <div class="node-step">passed</div>
+        </li>
+        <li test-id='27' class='node and pass' status='pass'>
+            <div class="step-name" title=""><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>And I enter valid account details</div>
+                <div class="node-step"><table class='runtime-table table-striped table'><tr><td>Salutation</td><td>Mr.</td></tr><tr><td>FirstName</td><td>Amit</td></tr><tr><td>LastName</td><td>Singh</td></tr><tr><td>Password</td><td>password</td></tr><tr><td>DOB</td><td>12-July-1995</td></tr><tr><td>SignUp_NewsLetter</td><td>N</td></tr><tr><td>SpecialOffers</td><td>Y</td></tr><tr><td>Company</td><td>testdevlabs</td></tr><tr><td>Address_1</td><td>432</td></tr><tr><td>Address_2</td><td>Annelinn</td></tr><tr><td>City</td><td>Phoenix</td></tr><tr><td>State</td><td>Arizona</td></tr><tr><td>ZipCode</td><td>85014</td></tr><tr><td>Country</td><td>United States of America</td></tr><tr><td>AdditionalInfo</td><td>N/A</td></tr><tr><td>HomePhone</td><td></td></tr><tr><td>MobileNumber</td><td>+17865509876</td></tr><tr><td>Alias</td><td>My address</td></tr></table></div>
+                <div class="node-step">id: customer_firstname]:Amit</div>
+                <div class="node-step">id: customer_lastname]:Singh</div>
+                <div class="node-step">id: passwd]:password</div>
+                <div class="node-step">id: days]:12</div>
+                <div class="node-step">id: months]:July</div>
+                <div class="node-step">id: years]:1995</div>
+                <div class="node-step">Special Offer check box selected</div>
+                <div class="node-step">id: company]:testdevlabs</div>
+                <div class="node-step">id: address1]:432</div>
+                <div class="node-step">id: address2]:Annelinn</div>
+                <div class="node-step">id: city]:Phoenix</div>
+                <div class="node-step">id: id_state]:Arizona</div>
+                <div class="node-step">id: postcode]:85014</div>
+                <div class="node-step">id: id_country]:United States of America</div>
+                <div class="node-step">id: other]:N/A</div>
+                <div class="node-step">id: phone]:</div>
+                <div class="node-step">id: phone_mobile]:+17865509876</div>
+                <div class="node-step">passed</div>
+        </li>
+        <li test-id='28' class='node and pass' status='pass'>
+            <div class="step-name" title=""><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>And click on Register button</div>
+                <div class="node-step">Clicked on registration button.</div>
+                <div class="node-step">passed</div>
+        </li>
+        <li test-id='29' class='node and pass' status='pass'>
+            <div class="step-name" title=""><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>And My Account page is opened</div>
+                <div class="node-step">My account page is opened.</div>
+                <div class="node-step">passed</div>
+        </li>
+        <li test-id='30' class='node and pass' status='pass'>
+            <div class="step-name" title=""><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>And I click on My Personal Information button</div>
+                <div class="node-step">MY PERSONAL INFORMATION is clicked</div>
+                <div class="node-step">passed</div>
+        </li>
+        <li test-id='31' class='node then pass' status='pass'>
+            <div class="step-name" title=""><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>Then Your Personal Information page is opened</div>
+                <div class="node-step">PERSONAL INFORMATION page is opened</div>
+                <div class="node-step">passed</div>
+        </li>
+        <li test-id='32' class='node and fail' status='fail'>
+            <div class="step-name" title=""><span class='status fail' title='fail'><i class='material-icons'>cancel</i></span>And correct personal information is displayed</div>
+            <ul class='screenshots right'>
+                <li><a data-featherlight="image" href="src\test\reports\ExecutionReport_1583129074559\Accountcreation1583129109474.png"><i class='material-icons'>panorama</i></a></li>
+            </ul>
+                <div class="node-step">Social Title Mr. is selected.</div>
+                <div class="node-step">FIRST NAME matches the input data</div>
+                <div class="node-step">LAST NAME matches the input data</div>
+                <div class="node-step">EMAIL ID matches the input data</div>
+                <div class="node-step">Expected DOB: 12-July-1995, Actual DOB: 12  -12  -12</div>
+                <textarea disabled class="code-block">java.lang.AssertionError: Expected DOB: 12-July-1995, Actual DOB: 12  -12  -12  
+	at org.junit.Assert.fail(Assert.java:88)
+	at framework.Report.fail(Report.java:41)
+	at StepDefinitions.UserManagement.correctPersonalInformationIsDisplayed(UserManagement.java:264)
+	at ✽.And correct personal information is displayed(userManagement.feature:31)
+</textarea>
         </li>
     </ul>
 </div>
@@ -343,9 +456,42 @@
 								</thead>
 								<tbody>
 									<tr>
-										<td>Feb 28, 2020 07:58:04 AM</td>
+										<td>Mar 2, 2020 08:04:34 AM</td>
 										<td class='linked' test-id='2'>Add shopping items to cart for purchase.Adding item to the cart</td>
 										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@userAccountCreation</span>
+						<span class='category-status right'>
+						<span class='label fail'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							
+							<span status="fail" class='label red lighten-1 white-text'>Failed: 1</span>
+							
+						</div>
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Mar 2, 2020 08:04:56 AM</td>
+										<td class='linked' test-id='23'>User Management Section.Account creation</td>
+										<td><span class='test-status fail'>fail</span></td>
 									</tr>
 								</tbody>
 							</table>
@@ -361,7 +507,67 @@
 		</div>
 	</div>
 </div>
-<!-- category view --><!-- exception view --><div id='dashboard-view' class='view hide'>
+<!-- category view --><div id='exception-view' class='view hide'>
+	<section id='controls'>
+		<div class='controls grey lighten-4'>
+			<!-- search -->
+			<div class='chip transparent' alt='Search Tests' title='Search Tests'>
+				<a href="#" class='search-div'>
+				<i class='material-icons'>search</i> Search
+				</a>
+				<div class='input-field left hide'>
+					<input id='search-tests' type='text' class='validate browser-default' placeholder='Search Tests...'>
+				</div>
+			</div>
+			<!-- search -->
+		</div>
+	</section>
+	<div class='subview-left left'>
+		<div class='view-summary'>
+			<ul id='exception-collection' class='exception-collection'>
+				<li class='exception displayed active'>
+					<div class='exception-heading'>
+						<span class='exception-name'>java.lang.AssertionError</span>
+						<span class='exception-count right'><span class='label red lighten-1 white-text'>1</span></span>
+					</div>
+					<div class='exception-content hide'>
+						<div class='exception-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Mar 2, 2020 08:05:08 AM</td>
+										<td class='linked' test-id='32'>User Management Section.Account creation.And correct personal information is displayed</td>
+										<td>
+											<textarea disabled class="code-block">java.lang.AssertionError: Expected DOB: 12-July-1995, Actual DOB: 12  -12  -12  
+	at org.junit.Assert.fail(Assert.java:88)
+	at framework.Report.fail(Report.java:41)
+	at StepDefinitions.UserManagement.correctPersonalInformationIsDisplayed(UserManagement.java:264)
+	at ✽.And correct personal information is displayed(userManagement.feature:31)
+</textarea>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class='subview-right left'>
+		<div class='view-summary'>
+			<h5 class='exception-name'></h5>
+		</div>
+	</div>
+</div>
+<!-- exception view --><div id='dashboard-view' class='view hide'>
 	<div class='card-panel transparent np-v'>
 		<h5>Dashboard</h5>
 
@@ -369,37 +575,37 @@
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Features
-					<div class='panel-lead'>1</div>
+					<div class='panel-lead'>2</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Scenarios
-					<div class='panel-lead'>1</div>
+					<div class='panel-lead'>2</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Steps
-					<div class='panel-lead'>19</div>
+					<div class='panel-lead'>28</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Start
-					<div class='panel-lead'>Feb 28, 2020 07:58:03 AM</div>
+					<div class='panel-lead'>Mar 2, 2020 08:04:34 AM</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 			 		End
-			 		<div class='panel-lead'>Feb 28, 2020 07:59:21 AM</div>
+			 		<div class='panel-lead'>Mar 2, 2020 08:05:38 AM</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Time Taken
-					<div class='panel-lead'>0h 1m 17s+558ms</div>
+					<div class='panel-lead'>0h 1m 3s+457ms</div>
 				</div>
 			</div>
 			<div class='col s6'>
@@ -423,6 +629,15 @@
 									100%
 							</td>
 						</tr>
+						<tr>
+							<td>@userAccountCreation</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>
+									0%
+							</td>
+						</tr>
 					</table>
 				</div>
 			</div>
@@ -430,43 +645,127 @@
 	</div>
 </div>
 <!-- dashboard view -->
+<div id='testrunner-logs-view' class='view hide'>
+	<div class='card-panel transparent np-v'>
+		<h5>TestRunner Logs</h5>
+		
+		<div class='card-panel'>
+				<b>[@AddItemsToCart]</b>
+				<b>Adding item to the cart</b>
+				<br>
+				08:04:47.157 : Application successfully launched.
+				<br>
+				08:04:48.778 : User is on Sign in page
+				<br>
+				08:04:48.841 : LogIn button located.
+				<br>
+				08:04:50.675 : User is on landing page
+				<br>
+				08:04:50.785 : Search box selected
+				<br>
+				08:04:50.813 : Search box is enabled
+				<br>
+				08:04:51.993 : 1 product found.
+				<br>
+				08:04:53.422 : First item selected.
+				<br>
+				08:04:53.485 : Product description is displayed.
+				<br>
+				08:04:53.485 : Product condition is displayed.
+				<br>
+				08:04:53.610 : Size field found.
+				<br>
+				08:04:53.778 : Add to cart button enabled.
+				<br>
+				08:04:53.838 : Add to cart button is clicked.
+				<br>
+				08:04:54.974 : Item successfully added to cart.
+				<br>
+				08:04:54.996 : Proceed to checkout button is enabled.
+				<br>
+				08:04:56.197 : Shopping Cart Summary is opened
+				<br>
+				08:04:56.222 : Expected Color: White, Actual Color: White
+				<br>
+				08:04:56.222 : Expected Size: S, Actual Size: S
+				<br>
+				08:04:56.306 : Expected TOTAL PRODUCT: 54.0, Actual TOTAL PRODUCT: $54.00
+				<br>
+				08:04:56.342 : Total price is calculated correctly.
+				<br>
+				08:04:56.379 : Proceed to checkout button present on product summary page.
+				<br>
+				<br>
+				<b>[@userAccountCreation]</b>
+				<b>Account creation</b>
+				<br>
+				08:04:57.699 : Application successfully launched.
+				<br>
+				08:05:00.540 : User is on Sign in page
+				<br>
+				08:05:00.690 : Email ID entered: amit49@automation.com
+				<br>
+				08:05:05.643 : Special Offer check box selected
+				<br>
+				08:05:07.670 : Clicked on registration button.
+				<br>
+				08:05:07.726 : My account page is opened.
+				<br>
+				08:05:08.918 : MY PERSONAL INFORMATION is clicked
+				<br>
+				08:05:08.973 : PERSONAL INFORMATION page is opened
+				<br>
+				08:05:09.060 : Social Title Mr. is selected.
+				<br>
+				08:05:09.068 : FIRST NAME matches the input data
+				<br>
+				08:05:09.079 : LAST NAME matches the input data
+				<br>
+				08:05:09.089 : EMAIL ID matches the input data
+				<br>
+				08:05:09.474 : Expected DOB: 12-July-1995, Actual DOB: 12  -12  -12  
+				<br>
+				<br>
+		</div>
+	</div>
+</div>
 <!-- testrunner-logs view -->		</div>
 		<!-- container -->
 		<script>
 			var statusGroup = {
-                parentCount: 1,
+                parentCount: 2,
 				passParent: 1,
-				failParent: 0,
+				failParent: 1,
 				fatalParent: 0,
 				errorParent: 0,
 				warningParent: 0,
 				skipParent: 0,
-				exceptionsParent: 0,
-				childCount: 1,
+				exceptionsParent: 1,
+				childCount: 2,
 				passChild: 1,
-				failChild: 0,
+				failChild: 1,
 				fatalChild: 0,
 				errorChild: 0,
 				warningChild: 0,
 				skipChild: 0,
 				infoChild: 0,
 				debugChild: 0,
-				exceptionsChild: 0,
-				grandChildCount: 19,
-				passGrandChild: 19,
-				failGrandChild: 0,
+				exceptionsChild: 1,
+				grandChildCount: 28,
+				passGrandChild: 27,
+				failGrandChild: 1,
 				fatalGrandChild: 0,
 				errorGrandChild: 0,
 				warningGrandChild: 0,
 				skipGrandChild: 0,
 				infoGrandChild: 0,
 				debugGrandChild: 0,
-				exceptionsGrandChild: 0,
+				exceptionsGrandChild: 1,
 			};
 		</script>
 		<script>
 			var timeline = {
-			        "Add shopping items to cart for purchase":77.229
+			        "Add shopping items to cart for purchase":21.691,"User Management Section":41.624
 			};
 		</script>
 		<script src='https://cdn.rawgit.com/extent-framework/extent-github-cdn/b65cd69/v3html/js/extent.js' type='text/javascript'></script>

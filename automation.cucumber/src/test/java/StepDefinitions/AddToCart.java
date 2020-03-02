@@ -1,10 +1,11 @@
 package StepDefinitions;
 
-import cucumber.api.PendingException;
 import cucumber.api.java.en.*;
 import framework.*;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
+import java.text.DecimalFormat;
 import java.util.HashMap;
 import java.util.List;
 
@@ -114,7 +115,6 @@ public class AddToCart  {
         WebElement quantity = Driver.getElement("quantity");
         quantity.clear();
         Driver.sendKeys(quantity, Integer.toString(arg0));
-        quantity.sendKeys(Integer.toString(arg0));
         shoppingData.put("Quantity", Integer.toString(arg0));
     }
 
@@ -136,7 +136,7 @@ public class AddToCart  {
         WebElement productColor_White;
         productColor_White= Driver.getElement("productColor_White");
         productColor_White.click();
-        shoppingData.put("Color", "white");
+        shoppingData.put("Color", "White");
     }
 
     @And("^I select Add to cart button$")
@@ -156,8 +156,11 @@ public class AddToCart  {
     }
 
     @And("^item is successfully added to cart$")
-    public void itemIsSuccessfullyAddedToCart() {
+    public void itemIsSuccessfullyAddedToCart() throws InterruptedException {
+
         WebElement addtoCart_confirmationMessage;
+
+        Driver.wait("addtoCart_confirmationMessage", 4);
         addtoCart_confirmationMessage = Driver.getElement("addtoCart_confirmationMessage");
         if (addtoCart_confirmationMessage.isDisplayed())    {
             Report.pass("Item successfully added to cart.");
@@ -168,7 +171,7 @@ public class AddToCart  {
 
     @And("^I click on Proceed to checkout button$")
     public void iClickOnProceedToCheckoutButton()   {
-        WebElement proceedToCheckout = Driver.getElement("proceedToCheckout");
+        WebElement proceedToCheckout = Driver.getElement("proceedToCheckout_popUp");
         if (proceedToCheckout.isEnabled()) {
             Report.pass("Proceed to checkout button is enabled.");
             proceedToCheckout.click();
@@ -218,39 +221,50 @@ public class AddToCart  {
     @And("^amount is correctly calculated$")
     public void amountIsCorrectlyCalculated()   {
 
+        DecimalFormat df = new DecimalFormat();
+        df.setMaximumFractionDigits(2);
+
         WebElement totalProduct, total_shipping, total_tax, total_price;
         totalProduct = Driver.getElement("totalProduct");
         total_shipping = Driver.getElement("total_shipping");
         total_tax = Driver.getElement("total_tax");
         total_price = Driver.getElement("total_price");
 
+        String actualTotalProductPrice, expectedTotalProductPrice, expectedTotalPrice, actualTotalPrice;
+        actualTotalProductPrice= df.format(Float.parseFloat(totalProduct.getText().replace("$", "")));
+        expectedTotalProductPrice= df.format(Float.parseFloat(shoppingData.get("TotalProduct")));
+
         //Verify if total product price (without extra costs) is correct
-        if (totalProduct.getText().equals(shoppingData.get("TotalProduct")))
+        if (actualTotalProductPrice.equals(expectedTotalProductPrice))
             Report.pass("Expected TOTAL PRODUCT: " + shoppingData.get("TotalProduct") + ", " +
                     "Actual TOTAL PRODUCT: " + totalProduct.getText());
         else
             Report.fail("Expected TOTAL PRODUCT: " + shoppingData.get("TotalProduct") + ", " +
                     "Actual TOTAL PRODUCT: " + totalProduct.getText());
 
-        float expectedTotalPrice= Float.parseFloat(shoppingData.get("TotalProduct")) +
+        expectedTotalPrice= df.format(Float.parseFloat(shoppingData.get("TotalProduct")) +
                 Float.parseFloat(total_shipping.getText().replace("$", "")) +
-                Float.parseFloat(total_tax.getText().replace("$", ""));
-        float actualTotalPrice= Float.parseFloat(total_price.getText().replace("$", ""));
+                Float.parseFloat(total_tax.getText().replace("$", "")));
+        actualTotalPrice= df.format(Float.parseFloat(total_price.getText().replace("$", "")));
 
         //Verify if total price is calculated correctly
-        if (expectedTotalPrice == actualTotalPrice)
+        if (expectedTotalPrice.equals(actualTotalPrice))
             Report.pass("Total price is calculated correctly.");
         else
-            Report.fail("otal price is not calculated correctly.");
+            Report.fail("Total price is not calculated correctly.");
     }
 
     @And("^Proceed to checkout button is visible$")
-    public void proceedToCheckoutButtonIsVisible() {
-        WebElement proceedToCheckout = Driver.getElement("proceedToCheckout");
+    public void proceedToCheckoutButtonIsVisible()  {
+
+        ((JavascriptExecutor) MyRunner.webDriver)
+                .executeScript("window.scrollTo(0, document.body.scrollHeight)");
+
+        WebElement proceedToCheckout = Driver.getElement("proceedToCheckout_checkOutPage");
         if (proceedToCheckout.isDisplayed())
             Report.pass("Proceed to checkout button present on product summary page.");
         else
-            Report.pass("Proceed to checkout button is not present on product summary page.");
+            Report.fail("Proceed to checkout button is not present on product summary page.");
     }
 
     //*************Additional functions*****************

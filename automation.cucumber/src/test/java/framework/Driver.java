@@ -2,7 +2,11 @@ package framework;
 
 import com.vimalselvam.cucumber.listener.Reporter;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -48,7 +52,6 @@ public class Driver {
 
     public static List<WebElement> getElements(String elementName)   {
         List<WebElement> webElements = new ArrayList<>();
-        WebElement webElement = null;
         ArrayList<String> objectData = MyRunner.allObjects.get(elementName);
 
         try {
@@ -89,5 +92,10 @@ public class Driver {
         webElement.sendKeys(string.trim());
         String webElementName= webElement.toString().split("->")[1].trim();
         Reporter.addStepLog(webElementName + ":" + string.trim());
+    }
+
+    public static void wait(String strElement, int seconds)   {
+        WebDriverWait wait = new WebDriverWait (MyRunner.webDriver, seconds);
+        wait.until(ExpectedConditions.visibilityOf(getElement(strElement)));
     }
 }

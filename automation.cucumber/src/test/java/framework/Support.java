@@ -16,20 +16,11 @@ import org.openqa.selenium.opera.OperaOptions;
 import java.io.*;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Support {
-
-    protected static String strTestCase;
-    protected Scenario scenario;
-
-    @Before
-    public void getTC(Scenario scene)  {
-        this.scenario = scene;
-        strTestCase = scenario.getName();
-        Reporter.addScenarioLog(strTestCase);
-    }
 
     protected static WebDriver setBrowser(String browser)  {
         WebDriver webDr = null;
@@ -98,5 +89,4 @@ public class Support {
 
         return sb.toString();
     }
-
 }
