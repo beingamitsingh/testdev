@@ -11,6 +11,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Map;
+import java.util.Random;
 
 public class UserManagement extends MyRunner {
 
@@ -49,18 +50,18 @@ public class UserManagement extends MyRunner {
             Report.fail("User is not on sign in page");
     }
 
-    @When("^I enter email \"([^\"]*)\" in Create New Account section$")
-    public void iEnterEmailInCreateNewAccountSection(String args0) throws InterruptedException  {
+    @When("^I enter email in Create New Account section$")
+    public void iEnterEmailInCreateNewAccountSection() throws InterruptedException  {
         WebElement email_accountCreation, createAccountButton;
-        registrationEmail= args0;
+        registrationEmail= getRegistrationEmail();
 
         synchronized (webDriver) {
             email_accountCreation= Driver.getElement("email_accountCreation");
             createAccountButton= Driver.getElement("createAccountButton");
 
             if (email_accountCreation.isDisplayed())    {
-                Driver.sendKeys(email_accountCreation, args0);
-                Report.pass("Email ID entered: " + args0);
+                Driver.sendKeys(email_accountCreation, registrationEmail);
+                Report.pass("Email ID entered: " + registrationEmail);
                 createAccountButton.click();
             }
             else
@@ -265,16 +266,17 @@ public class UserManagement extends MyRunner {
     }
 
     //*************Additional functions*****************
-    private int mapMonths(String month) {
-        Date date = null;
-        Calendar cal = Calendar.getInstance();
-        try {
-            date = new SimpleDateFormat("DD-MM-YYYY").parse(month);
-            cal.setTime(date);
+    private String getRegistrationEmail() {
+        int leftLimit = 97; // letter 'a'
+        int rightLimit = 122; // letter 'z'
+        int targetStringLength = 10;
+        Random random = new Random();
+        StringBuilder buffer = new StringBuilder(targetStringLength);
+        for (int i = 0; i < targetStringLength; i++) {
+            int randomLimitedInt = leftLimit + (int)
+                    (random.nextFloat() * (rightLimit - leftLimit + 1));
+            buffer.append((char) randomLimitedInt);
         }
-        catch (ParseException e) {
-            e.printStackTrace();
-        }
-        return cal.get(Calendar.MONTH);
+        return buffer.toString() + "@automation.com";
     }
 }
